@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* [spin](http://spinroot.com/spin/whatispin.html)
 * [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/
 * [nfstest](http://wiki.linux-nfs.org/wiki/index.php/NFStest) - sysutils/nfstest
 * [glean](http://glean.sourceforge.net/run.html) - sysutils/glean

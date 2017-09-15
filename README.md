@@ -22,11 +22,10 @@ Instead of having it rot in a corner of a mailinglist.
 * [gcovr](http://gcovr.com/) - devel/gcovr
 * [postal](https://doc.coker.com.au/projects/postal/) - benchmarks/postal
 * [dEQP](https://android.googlesource.com/platform/external/deqp/) - DrawElements Quality Program ([FOSDEM](https://archive.fosdem.org/2015/schedule/event/gl_testing/attachments/slides/670/export/events/attachments/gl_testing/slides/670/slides.pdf))
-* [packetdrill](https://github.com/google/packetdrill)
-* https://github.com/shivrai/TCP-IP-Regression-TestSuite
+* [packetdrill](https://github.com/google/packetdrill), [TCP-IP-Regression-TestSuite](https://github.com/shivrai/TCP-IP-Regression-TestSuite)
 * [XFS tests](http://git.kernel.org/cgit/fs/xfs/xfstests-dev.git)
 * [File System Stress Testing Framework](http://code.google.com/p/file-system-stress-testing-framework/)
-*  [fio](http://git.kernel.dk/?p=fio.git)
+* [fio](http://git.kernel.dk/?p=fio.git)
 * [fsfuzzer](https://github.com/sughodke/fsfuzzer)
 * [filebench](http://sourceforge.net/projects/filebench/)
 * [tiobench](http://sourceforge.net/projects/tiobench/)

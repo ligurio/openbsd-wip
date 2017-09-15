@@ -11,54 +11,61 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
-* [spin](http://spinroot.com/spin/whatispin.html)
+#### Testing tools
+
 * [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/
 * [nfstest](http://wiki.linux-nfs.org/wiki/index.php/NFStest) - sysutils/nfstest
 * [glean](http://glean.sourceforge.net/run.html) - sysutils/glean
 * [stress2](https://people.freebsd.org/~pho/stress/) - sysutils/stress2
 * [fsx](https://codemonkey.org.uk/projects/fsx/) - sysutils/fsx
 * [codespeed](https://github.com/tobami/codespeed) - www/codespeed/
-* paperkey - security/paperkey/
 * [gcovr](http://gcovr.com/) - devel/gcovr
-* [Collection 4](https://collectd.org/wiki/index.php/Collection_4)
+* [postal](https://doc.coker.com.au/projects/postal/) - benchmarks/postal
+* [dEQP](https://android.googlesource.com/platform/external/deqp/) - DrawElements Quality Program ([FOSDEM](https://archive.fosdem.org/2015/schedule/event/gl_testing/attachments/slides/670/export/events/attachments/gl_testing/slides/670/slides.pdf))
+* [packetdrill](https://github.com/google/packetdrill)
+* https://github.com/shivrai/TCP-IP-Regression-TestSuite
+* [XFS tests](http://git.kernel.org/cgit/fs/xfs/xfstests-dev.git)
+* [File System Stress Testing Framework](http://code.google.com/p/file-system-stress-testing-framework/)
+*  [fio](http://git.kernel.dk/?p=fio.git)
+* [fsfuzzer](https://github.com/sughodke/fsfuzzer)
+* [filebench](http://sourceforge.net/projects/filebench/)
+* [tiobench](http://sourceforge.net/projects/tiobench/)
+* [ffsb](http://sourceforge.net/projects/ffsb/)
+* [lmbench](http://lmbench.sourceforge.net/)
+* [NFSometer](http://linux-nfs.org/wiki/index.php/NFSometer)
+* [XTS - X Test Suite, tests for core protocol conformance](http://cgit.freedesktop.org/xorg/test/xts/)
+* [The SGI OpenGL conformance tests](http://www.mesa3d.org/conform.html)
+* [unixbench](http://code.google.com/p/byte-unixbench/)
+* [Open Posix Testsuite](http://posixtest.sourceforge.net)
+* [entropy](http://www.fourmilab.ch/random/)
+* [dieharder](http://www.phy.duke.edu/~rgb/General/dieharder.php) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-math-dieharder-td148495.html)
+* [wrk](https://github.com/wg/wrk)
+* [httpress](https://bitbucket.org/yarosla/httpress/wiki/Home)
+* [http-stress](https://bitbucket.org/vstakhov/http-stress)
+* [smtpscript](https://github.com/poolpOrg/smtpscript)
+* [dnsblast](https://github.com/jedisct1/dnsblast)
+
+#### 
+
+* [spin](http://spinroot.com/spin/whatispin.html)
+* paperkey - security/paperkey/
 * [blists](http://www.openwall.com/blists/)
 * [s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)
 * [duck](https://duck.sh/)
-* [Pywikibot](https://www.mediawiki.org/wiki/Manual:Pywikibot/ru)
-* [dEQP](https://android.googlesource.com/platform/external/deqp/) - DrawElements Quality Program ([FOSDEM](https://archive.fosdem.org/2015/schedule/event/gl_testing/attachments/slides/670/export/events/attachments/gl_testing/slides/670/slides.pdf))
-* [spotifyd](https://simonpersson.github.io/spotifyd/)
 * [LanguageTool](https://languagetool.org/)
 * [Telegram](https://github.com/vysheng/tg)
 * [castnow](https://github.com/xat/castnow) or something to cast to Chromecast
-* [Attic](https://attic-backup.org/) и [atticmatic](https://torsion.org/atticmatic/)
-* [QEMU guest agent](http://wiki.qemu.org/Features/QAPI/GuestAgent) - [WIP port in ports@](http://comments.gmane.org/gmane.os.openbsd.ports/65642)
-* [OSRM](http://project-osrm.org/)
-* [rr](http://rr-project.org/)
-* [T - twitter client](https://sferik.github.io/t/)
-* [lastpass-cli](https://github.com/lastpass/lastpass-cli) - [WIP port in ports@](http://openbsd-archive.7691.n7.nabble.com/NEW-security-lastpass-cli-td267355.html)
 * [gtimelog](https://github.com/gtimelog/gtimelog)
 * [California](https://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
 * [Age of Empires](http://openage.sft.mx) games/openage
-* [Sigil](https://code.google.com/p/sigil/)
-* [MyPaint](http://mypaint.intilinux.com/?page_id=9)
+* [Sigil](https://code.google.com/p/sigil/) - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/sigil)
+* [MyPaint](http://mypaint.org/) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-graphics-mypaint-td274746.html)
 * [Gnome Paint](https://launchpad.net/gnome-paint) - здорово было бы иметь минималистичный графический редактор, чтобы не устанавливать Gimp.
-* [guacamole](https://guac-dev.org/doc/gug/installing-guacamole.html#building-guacamole-from-source)
-* [ethercalc](https://ethercalc.org/)
-* [etherpad](https://github.com/ether/pad)
-* [Intel GPU tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/)
-* [conman](https://code.google.com/p/conman/)
+* pandoc - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/pandoc)
 * [yed](https://www.yworks.com/en/products_yed_about.html)
-* [pkcs11-dump](https://sites.google.com/site/alonbarlev/pkcs11-utilities)
 * [Scan Tailor](http://scantailor.sourceforge.net/)
-* [UniConvertor](http://www.sk1project.org/modules.php?name=Products&product=uniconvertor&op=download)
-* [postal](https://doc.coker.com.au/projects/postal/) - benchmarks/postal
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
-* [xtrkcad](https://sourceforge.net/projects/xtrkcad-fork/) - [импортировано](http://ports.su/cad/xtrkcad)
-* [Открытые ресурсы для игры OpenTTD](https://bundles.openttdcoop.org/) - игра уже давно портирована, но ресурсы нужно брать из коммерческой версии. Нужно сделать порт для открытых ресурсов.
-* [pybookreader](https://sourceforge.net/projects/pybookreader/)
-* [netams](http://netams.com)
-* [POVColor](https://sourceforge.net/projects/povcolor/) - неплохо было бы иметь хотя бы один color picker.
 * [asciijump](http://otak.k-k.pl/asciijump/gallery.php)
 * [minisip](http://freshmeat.net/projects/minisip/)
 * ~~[ted](https://www.nllgg.nl/Ted/)~~
@@ -95,3 +102,4 @@ or set the following option in `.git/config` in your local openbsd-wip repo
 
 * https://github.com/jasperla/openbsd-wip
 * https://github.com/aharri/wip-ports
+* https://github.com/jirib/openbsd-mystuff

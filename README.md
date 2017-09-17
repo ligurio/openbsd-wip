@@ -43,6 +43,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [http-stress](https://bitbucket.org/vstakhov/http-stress)
 * [smtpscript](https://github.com/poolpOrg/smtpscript)
 * [dnsblast](https://github.com/jedisct1/dnsblast)
+* [charybdefs](https://github.com/scylladb/charybdefs)
 
 #### 
 

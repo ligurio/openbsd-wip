@@ -103,3 +103,4 @@ or set the following option in `.git/config` in your local openbsd-wip repo
 * https://github.com/jasperla/openbsd-wip
 * https://github.com/aharri/wip-ports
 * https://github.com/jirib/openbsd-mystuff
+* https://github.com/eradman/openbsd-ports

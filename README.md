@@ -45,8 +45,9 @@ Instead of having it rot in a corner of a mailinglist.
 * [dnsblast](https://github.com/jedisct1/dnsblast)
 * [charybdefs](https://github.com/scylladb/charybdefs)
 
-#### 
+#### Applications
 
+* Patchwork
 * [spin](http://spinroot.com/spin/whatispin.html)
 * paperkey - security/paperkey/
 * [blists](http://www.openwall.com/blists/)

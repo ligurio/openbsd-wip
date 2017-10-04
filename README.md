@@ -15,6 +15,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 * [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/
 * [nfstest](http://wiki.linux-nfs.org/wiki/index.php/NFStest) - sysutils/nfstest
+* [NFSometer](http://linux-nfs.org/wiki/index.php/NFSometer)
 * [glean](http://glean.sourceforge.net/run.html) - sysutils/glean
 * [stress2](https://people.freebsd.org/~pho/stress/) - sysutils/stress2
 * [fsx](https://codemonkey.org.uk/projects/fsx/) - sysutils/fsx
@@ -26,16 +27,13 @@ Instead of having it rot in a corner of a mailinglist.
 * [XFS tests](http://git.kernel.org/cgit/fs/xfs/xfstests-dev.git)
 * [File System Stress Testing Framework](http://code.google.com/p/file-system-stress-testing-framework/)
 * [fio](http://git.kernel.dk/?p=fio.git)
+* [blktests](https://github.com/osandov/blktests)
 * [fsfuzzer](https://github.com/sughodke/fsfuzzer)
 * [filebench](http://sourceforge.net/projects/filebench/)
 * [tiobench](http://sourceforge.net/projects/tiobench/)
 * [ffsb](http://sourceforge.net/projects/ffsb/)
-* [lmbench](http://lmbench.sourceforge.net/)
-* [NFSometer](http://linux-nfs.org/wiki/index.php/NFSometer)
 * [XTS - X Test Suite, tests for core protocol conformance](http://cgit.freedesktop.org/xorg/test/xts/)
 * [The SGI OpenGL conformance tests](http://www.mesa3d.org/conform.html)
-* [unixbench](http://code.google.com/p/byte-unixbench/)
-* [Open Posix Testsuite](http://posixtest.sourceforge.net)
 * [entropy](http://www.fourmilab.ch/random/)
 * [dieharder](http://www.phy.duke.edu/~rgb/General/dieharder.php) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-math-dieharder-td148495.html)
 * [wrk](https://github.com/wg/wrk)
@@ -44,31 +42,29 @@ Instead of having it rot in a corner of a mailinglist.
 * [smtpscript](https://github.com/poolpOrg/smtpscript)
 * [dnsblast](https://github.com/jedisct1/dnsblast)
 * [charybdefs](https://github.com/scylladb/charybdefs)
+* [hackbench](https://people.redhat.com/mingo/cfs-scheduler/tools/hackbench.c)
+* ~~[Open Posix Tests](http://posixtest.sourceforge.net/)~~
+* ~~[lmbench](http://lmbench.sourceforge.net/)~~ - removed
+* ~~[unixbench](http://code.google.com/p/byte-unixbench/)~~ - [removed](https://marc.info/?l=openbsd-ports&m=149384282228255&w=2)
 
 #### Applications
 
+* [Concourse CI](https://concourse.ci/)
 * Patchwork
 * [spin](http://spinroot.com/spin/whatispin.html)
 * paperkey - security/paperkey/
-* [blists](http://www.openwall.com/blists/)
 * [s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)
 * [duck](https://duck.sh/)
-* [LanguageTool](https://languagetool.org/)
-* [Telegram](https://github.com/vysheng/tg)
-* [castnow](https://github.com/xat/castnow) or something to cast to Chromecast
 * [gtimelog](https://github.com/gtimelog/gtimelog)
 * [California](https://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
 * [Age of Empires](http://openage.sft.mx) games/openage
 * [Sigil](https://code.google.com/p/sigil/) - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/sigil)
 * [MyPaint](http://mypaint.org/) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-graphics-mypaint-td274746.html)
-* [Gnome Paint](https://launchpad.net/gnome-paint) - здорово было бы иметь минималистичный графический редактор, чтобы не устанавливать Gimp.
 * pandoc - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/pandoc)
-* [yed](https://www.yworks.com/en/products_yed_about.html)
+* [yEd](https://www.yworks.com/en/products_yed_about.html)
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
-* [asciijump](http://otak.k-k.pl/asciijump/gallery.php)
-* [minisip](http://freshmeat.net/projects/minisip/)
 * ~~[ted](https://www.nllgg.nl/Ted/)~~
 * ~~[unpaper](http://unpaper.berlios.de/)~~
 * ~~[gpxviewer](https://blog.sarine.nl/gpx-viewer/)~~

@@ -49,6 +49,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* [cprover](https://github.com/diffblue/cbmc/)
 * [Concourse CI](https://concourse.ci/)
 * Patchwork
 * [spin](http://spinroot.com/spin/whatispin.html)

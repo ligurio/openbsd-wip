@@ -14,7 +14,6 @@ Instead of having it rot in a corner of a mailinglist.
 #### Testing tools
 
 * [benchmark](https://github.com/google/benchmark)
-* [futex test](https://git.kernel.org/cgit/linux/kernel/git/dvhart/futextest.git)
 * [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/
 * [nfstest](http://wiki.linux-nfs.org/wiki/index.php/NFStest) - sysutils/nfstest
 * [NFSometer](http://linux-nfs.org/wiki/index.php/NFSometer)

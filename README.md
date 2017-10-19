@@ -13,6 +13,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Testing tools
 
+* [radamsa](https://github.com/aoh/radamsa)
 * [fstorture](https://github.com/macosforge/fstools/tree/master/src/fstorture)
 * [benchmark](https://github.com/google/benchmark)
 * [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/

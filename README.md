@@ -52,6 +52,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* http://people.duke.edu/~dgraham/etmtk/
 * [nnn](https://github.com/jarun/nnn)
 * [cprover](https://github.com/diffblue/cbmc/)
 * [Concourse CI](https://concourse.ci/)

@@ -52,10 +52,10 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* [50mm](https://github.com/agile-leaf/50mm)
 * http://people.duke.edu/~dgraham/etmtk/
-* [nnn](https://github.com/jarun/nnn)
 * [cprover](https://github.com/diffblue/cbmc/)
-* [Concourse CI](https://concourse.ci/)
+* [Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * Patchwork
 * paperkey - security/paperkey/
 * [s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)
@@ -69,6 +69,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
+* ~~[nnn](https://github.com/jarun/nnn)~~
 * ~~[gtimelog](https://github.com/gtimelog/gtimelog)~~ (replaced by timewarrior)
 * ~~[spin](http://spinroot.com/spin/whatispin.html)~~
 * ~~[ted](https://www.nllgg.nl/Ted/)~~

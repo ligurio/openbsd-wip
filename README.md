@@ -52,6 +52,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* [albert](https://albertlauncher.github.io/docs/extensions/)
 * [50mm](https://github.com/agile-leaf/50mm)
 * http://people.duke.edu/~dgraham/etmtk/
 * [cprover](https://github.com/diffblue/cbmc/)

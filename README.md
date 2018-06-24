@@ -61,8 +61,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * Patchwork
 * paperkey - security/paperkey/
-* [s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)
-* [duck](https://duck.sh/)
+* [duck](https://duck.sh/) - died?
 * [California](https://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
 * [Age of Empires](http://openage.sft.mx) games/openage
 * [Sigil](https://code.google.com/p/sigil/) - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/sigil)
@@ -72,6 +71,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
+* ~~[s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)~~ - sysutils/restic is ok
 * ~~[nnn](https://github.com/jarun/nnn)~~
 * ~~[gtimelog](https://github.com/gtimelog/gtimelog)~~ (replaced by timewarrior)
 * ~~[spin](http://spinroot.com/spin/whatispin.html)~~

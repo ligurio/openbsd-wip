@@ -52,6 +52,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* https://public-inbox.org/
 * bitwarden-ruby https://github.com/jcs/bitwarden-ruby
 * [dedup](http://git.2f30.org/dedup/file/README.html)
 * [albert](https://albertlauncher.github.io/docs/extensions/)

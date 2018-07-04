@@ -53,6 +53,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications
 
+* gitk https://git-scm.com/docs/gitk
 * Perkeep https://perkeep.org/
 * https://public-inbox.org/
 * bitwarden-ruby https://github.com/jcs/bitwarden-ruby

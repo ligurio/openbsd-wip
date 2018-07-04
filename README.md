@@ -46,6 +46,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [dnsblast](https://github.com/jedisct1/dnsblast)
 * [charybdefs](https://github.com/scylladb/charybdefs)
 * [hackbench](https://people.redhat.com/mingo/cfs-scheduler/tools/hackbench.c)
+* ipc-bench https://github.com/avsm/ipc-bench
 * ~~[Open Posix Tests](http://posixtest.sourceforge.net/)~~
 * ~~[lmbench](http://lmbench.sourceforge.net/)~~ - removed
 * ~~[unixbench](http://code.google.com/p/byte-unixbench/)~~ - [removed](https://marc.info/?l=openbsd-ports&m=149384282228255&w=2)

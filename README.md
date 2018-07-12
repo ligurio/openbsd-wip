@@ -51,8 +51,9 @@ Instead of having it rot in a corner of a mailinglist.
 * ~~[lmbench](http://lmbench.sourceforge.net/)~~ - removed
 * ~~[unixbench](http://code.google.com/p/byte-unixbench/)~~ - [removed](https://marc.info/?l=openbsd-ports&m=149384282228255&w=2)
 
-#### Applications
+#### Applications wishlist
 
+* JabRef/[betterbib](https://github.com/nschloe/betterbib)
 * gitk https://git-scm.com/docs/gitk
 * Perkeep https://perkeep.org/
 * https://public-inbox.org/

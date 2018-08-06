@@ -55,7 +55,6 @@ Instead of having it rot in a corner of a mailinglist.
 #### Applications wishlist
 
 * JabRef/[betterbib](https://github.com/nschloe/betterbib)
-* gitk https://git-scm.com/docs/gitk
 * Perkeep https://perkeep.org/
 * https://public-inbox.org/
 * bitwarden-ruby https://github.com/jcs/bitwarden-ruby
@@ -65,7 +64,7 @@ Instead of having it rot in a corner of a mailinglist.
 * http://people.duke.edu/~dgraham/etmtk/
 * [cprover](https://github.com/diffblue/cbmc/)
 * [Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
-* Patchwork
+* Patchwork or [Patchew](https://github.com/patchew-project/patchew)
 * paperkey - security/paperkey/
 * [duck](https://duck.sh/) - died?
 * [California](https://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
@@ -77,6 +76,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
+* ~~gitk https://git-scm.com/docs/gitk~~ can be kept in ~/bin as a single file
 * ~~[s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)~~ - sysutils/restic is ok
 * ~~[nnn](https://github.com/jarun/nnn)~~
 * ~~[gtimelog](https://github.com/gtimelog/gtimelog)~~ (replaced by timewarrior)

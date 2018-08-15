@@ -54,6 +54,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications wishlist
 
+* [Mayan EDMS](https://mayan.readthedocs.io/en/latest/) or [paperless](https://github.com/danielquinn/paperless)
 * JabRef/[betterbib](https://github.com/nschloe/betterbib)
 * Perkeep https://perkeep.org/
 * https://public-inbox.org/

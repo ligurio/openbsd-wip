@@ -54,6 +54,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications wishlist
 
+* [blists](http://www.openwall.com/blists/)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 * [openzwave](https://github.com/jcs/openbsd-ports/blob/master/comms/openzwave/Makefile)
 * [Mayan EDMS](https://mayan.readthedocs.io/en/latest/) or [paperless](https://github.com/danielquinn/paperless)

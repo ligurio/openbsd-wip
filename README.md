@@ -54,7 +54,6 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications wishlist
 
-* [ttyd](https://github.com/tsl0922/ttyd), [gotty](https://github.com/yudai/gotty)
 * [blists](http://www.openwall.com/blists/)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 * [openzwave](https://github.com/jcs/openbsd-ports/blob/master/comms/openzwave/Makefile)
@@ -81,6 +80,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
+* ~~[ttyd](https://github.com/tsl0922/ttyd)~~, [gotty](https://github.com/yudai/gotty)
 * ~~gitk https://git-scm.com/docs/gitk~~ can be kept in ~/bin as a single file
 * ~~[s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)~~ - sysutils/restic is ok
 * ~~[nnn](https://github.com/jarun/nnn)~~

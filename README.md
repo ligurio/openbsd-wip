@@ -54,6 +54,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 #### Applications wishlist
 
+* [photoprism](https://photoprism.org/)
 * ntfy https://github.com/dschep/ntfy
 * [blists](http://www.openwall.com/blists/)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)

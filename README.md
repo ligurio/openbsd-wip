@@ -11,49 +11,6 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
-#### Testing tools
-
-* [radamsa](https://github.com/aoh/radamsa)
-* [fstorture](https://github.com/macosforge/fstools/tree/master/src/fstorture)
-* [benchmark](https://github.com/google/benchmark)
-* [intel-gpu-tools](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/) - sysutils/intel-gpu-tools/
-* [nfstest](http://wiki.linux-nfs.org/wiki/index.php/NFStest) - sysutils/nfstest
-* [NFSometer](http://linux-nfs.org/wiki/index.php/NFSometer)
-* [glean](http://glean.sourceforge.net/run.html) - sysutils/glean
-* [stress2](https://people.freebsd.org/~pho/stress/) - sysutils/stress2
-* [fsx](https://codemonkey.org.uk/projects/fsx/) - sysutils/fsx
-* [codespeed](https://github.com/tobami/codespeed) - www/codespeed/
-* [gcovr](http://gcovr.com/) - devel/gcovr
-* [postal](https://doc.coker.com.au/projects/postal/) - benchmarks/postal
-* [dEQP](https://android.googlesource.com/platform/external/deqp/) - DrawElements Quality Program ([FOSDEM](https://archive.fosdem.org/2015/schedule/event/gl_testing/attachments/slides/670/export/events/attachments/gl_testing/slides/670/slides.pdf))
-* [packetdrill](https://github.com/google/packetdrill), [TCP-IP-Regression-TestSuite](https://github.com/shivrai/TCP-IP-Regression-TestSuite)
-* [XFS tests](http://git.kernel.org/cgit/fs/xfs/xfstests-dev.git)
-* [File System Stress Testing Framework](http://code.google.com/p/file-system-stress-testing-framework/)
-* [fio](http://git.kernel.dk/?p=fio.git)
-* [blktests](https://github.com/osandov/blktests)
-* [fsfuzzer](https://github.com/sughodke/fsfuzzer)
-* [filebench](http://sourceforge.net/projects/filebench/)
-* [tiobench](http://sourceforge.net/projects/tiobench/)
-* [ffsb](http://sourceforge.net/projects/ffsb/)
-* [XTS - X Test Suite, tests for core protocol conformance](http://cgit.freedesktop.org/xorg/test/xts/)
-* [The SGI OpenGL conformance tests](http://www.mesa3d.org/conform.html)
-* [entropy](http://www.fourmilab.ch/random/)
-* [dieharder](http://www.phy.duke.edu/~rgb/General/dieharder.php) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-math-dieharder-td148495.html)
-* [wrk](https://github.com/wg/wrk)
-* [httpress](https://bitbucket.org/yarosla/httpress/wiki/Home)
-* [http-stress](https://bitbucket.org/vstakhov/http-stress)
-* [smtpscript](https://github.com/poolpOrg/smtpscript)
-* [dnsblast](https://github.com/jedisct1/dnsblast)
-* [charybdefs](https://github.com/scylladb/charybdefs)
-* [hackbench](https://people.redhat.com/mingo/cfs-scheduler/tools/hackbench.c)
-* ipc-bench https://github.com/avsm/ipc-bench
-* [uperf](http://uperf.org/)
-* ~~[Open Posix Tests](http://posixtest.sourceforge.net/)~~
-* ~~[lmbench](http://lmbench.sourceforge.net/)~~ - removed
-* ~~[unixbench](http://code.google.com/p/byte-unixbench/)~~ - [removed](https://marc.info/?l=openbsd-ports&m=149384282228255&w=2)
-
-#### Applications wishlist
-
 * [photoprism](https://photoprism.org/)
 * ntfy https://github.com/dschep/ntfy
 * [blists](http://www.openwall.com/blists/)

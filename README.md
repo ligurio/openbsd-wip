@@ -11,8 +11,8 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
-* [photoprism](https://photoprism.org/)
-* ntfy https://github.com/dschep/ntfy
+* [netdata](https://github.com/netdata/netdata/)
+* [photoprism](https://photoprism.org/) OR * [50mm](https://github.com/agile-leaf/50mm)
 * [blists](http://www.openwall.com/blists/)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 * [openzwave](https://github.com/jcs/openbsd-ports/blob/master/comms/openzwave/Makefile)
@@ -23,9 +23,7 @@ Instead of having it rot in a corner of a mailinglist.
 * bitwarden-ruby https://github.com/jcs/bitwarden-ruby
 * [dedup](http://git.2f30.org/dedup/file/README.html)
 * [albert](https://albertlauncher.github.io/docs/extensions/)
-* [50mm](https://github.com/agile-leaf/50mm)
 * http://people.duke.edu/~dgraham/etmtk/
-* [cprover](https://github.com/diffblue/cbmc/)
 * [Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * Patchwork or [Patchew](https://github.com/patchew-project/patchew)
 * paperkey - security/paperkey/
@@ -39,6 +37,8 @@ Instead of having it rot in a corner of a mailinglist.
 * [Scan Tailor](http://scantailor.sourceforge.net/)
 * [gpsprune](https://activityworkshop.net/software/prune/) - geo/gpsprune
 * [mtkbabel](https://sourceforge.net/projects/mtkbabel/) - geo/mtkbabel
+* ~~[cprover](https://github.com/diffblue/cbmc/)~~ - devel/cbmc
+* ~~ntfy https://github.com/dschep/ntfy~~
 * ~~[ttyd](https://github.com/tsl0922/ttyd)~~, [gotty](https://github.com/yudai/gotty)
 * ~~gitk https://git-scm.com/docs/gitk~~ can be kept in ~/bin as a single file
 * ~~[s3cmd](http://s3tools.org/s3cmd) - [openbsd-wip](https://github.com/jasperla/openbsd-wip/tree/master/net/s3cmd)~~ - sysutils/restic is ok

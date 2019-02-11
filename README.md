@@ -13,7 +13,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 * [brow.sh](https://www.brow.sh/)
 * [Loki](https://github.com/grafana/loki)
-* [winrm-cli](https://github.com/masterzen/winrm-cli)
+* [winrm-cli](https://github.com/masterzen/winrm-cli), [winrmcp](https://github.com/packer-community/winrmcp)
 * [filebrowser](https://github.com/filebrowser/filebrowser)
 * [empty](https://sourceforge.net/projects/empty/)
 * [netdata](https://github.com/netdata/netdata/)

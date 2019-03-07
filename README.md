@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* [miraclecast](https://github.com/albfan/miraclecast)
 * [clangd](https://clang.llvm.org/extra/clangd/index.html)
 * [brow.sh](https://www.brow.sh/)
 * [Loki](https://github.com/grafana/loki)

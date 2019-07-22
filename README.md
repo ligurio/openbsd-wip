@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* [magic-wormhole](https://github.com/warner/magic-wormhole)
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)
 * [drakon_editor](https://github.com/stepan-mitkin/drakon_editor)
 * [gotify](https://gotify.net/)

@@ -23,7 +23,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [winrm-cli](https://github.com/masterzen/winrm-cli), [winrmcp](https://github.com/packer-community/winrmcp)
 * [filebrowser](https://github.com/filebrowser/filebrowser)
 * [empty](https://sourceforge.net/projects/empty/)
-* [netdata](https://github.com/netdata/netdata/)
+* [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
 * [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop)
 * [blists](http://www.openwall.com/blists/)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)

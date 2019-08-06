@@ -11,6 +11,8 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* Sharedrop https://github.com/cowbell/sharedrop
+* PeerTube (see https://github.com/Chocobozzz/PeerTube/issues/1392)
 * [magic-wormhole](https://github.com/warner/magic-wormhole)
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)
 * [drakon_editor](https://github.com/stepan-mitkin/drakon_editor)

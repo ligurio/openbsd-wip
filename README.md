@@ -23,6 +23,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ----------
 
+* Garmin: [garmin-connect-export](https://github.com/kjkjava/garmin-connect-export), [GcpUploader](https://github.com/dlotton/GcpUploader), [postrunner](https://github.com/scrapper/postrunner)
 * PeerTube (see https://github.com/Chocobozzz/PeerTube/issues/1392)
 * [drakon_editor](https://github.com/stepan-mitkin/drakon_editor)
 * [kgt](https://github.com/katef/kgt)

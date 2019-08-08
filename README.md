@@ -11,13 +11,20 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
-* fselect https://github.com/jhspetersson/fselect
-* Sharedrop https://github.com/cowbell/sharedrop
+* [fselect](https://github.com/jhspetersson/fselect)
+* [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
+* [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole) - share files
+* [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
+* [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop)
+* bitwarden-ruby https://github.com/jcs/bitwarden-ruby
+* [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
+* JabRef
+* [gotify](https://gotify.net/) - a simple server for sending and receiving messages
+
+----------
+
 * PeerTube (see https://github.com/Chocobozzz/PeerTube/issues/1392)
-* [magic-wormhole](https://github.com/warner/magic-wormhole)
-* [Evergreen CI](https://github.com/evergreen-ci/evergreen)
 * [drakon_editor](https://github.com/stepan-mitkin/drakon_editor)
-* [gotify](https://gotify.net/)
 * [kgt](https://github.com/katef/kgt)
 * [miraclecast](https://github.com/albfan/miraclecast)
 * [clangd](https://clang.llvm.org/extra/clangd/index.html)
@@ -26,25 +33,19 @@ Instead of having it rot in a corner of a mailinglist.
 * [winrm-cli](https://github.com/masterzen/winrm-cli), [winrmcp](https://github.com/packer-community/winrmcp)
 * [filebrowser](https://github.com/filebrowser/filebrowser)
 * [empty](https://sourceforge.net/projects/empty/)
-* [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
-* [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop)
 * [blists](http://www.openwall.com/blists/)
-* [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 * [openzwave](https://github.com/jcs/openbsd-ports/blob/master/comms/openzwave/Makefile)
 * [Mayan EDMS](https://mayan.readthedocs.io/en/latest/) or [paperless](https://github.com/danielquinn/paperless)
-* JabRef/[betterbib](https://github.com/nschloe/betterbib)
-* Perkeep https://perkeep.org/
+* [Perkeep](https://perkeep.org/)
 * https://public-inbox.org/
-* bitwarden-ruby https://github.com/jcs/bitwarden-ruby
 * [dedup](http://git.2f30.org/dedup/file/README.html)
 * [albert](https://albertlauncher.github.io/docs/extensions/)
 * http://people.duke.edu/~dgraham/etmtk/
-* [Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * Patchwork or [Patchew](https://github.com/patchew-project/patchew)
-* paperkey - security/paperkey/
+* paperkey - `security/paperkey/`
 * [duck](https://duck.sh/) - died?
-* [California](https://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
-* [Age of Empires](http://openage.sft.mx) games/openage
+* [California](thttps://wiki.gnome.org/Apps/California) - когда уже в OpenBSD будет хороший аналог Calendar.app?
+* [Age of Empires](http://openage.sft.mx) `games/openage`
 * [Sigil](https://code.google.com/p/sigil/) - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/sigil)
 * [MyPaint](http://mypaint.org/) - [WIP port](http://openbsd-archive.7691.n7.nabble.com/NEW-graphics-mypaint-td274746.html)
 * pandoc - [WIP port](https://github.com/jirib/openbsd-mystuff/tree/master/textproc/pandoc)

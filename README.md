@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* fselect https://github.com/jhspetersson/fselect
 * Sharedrop https://github.com/cowbell/sharedrop
 * PeerTube (see https://github.com/Chocobozzz/PeerTube/issues/1392)
 * [magic-wormhole](https://github.com/warner/magic-wormhole)

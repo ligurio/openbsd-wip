@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* [albert](https://github.com/albertlauncher/albert)
 * [fselect](https://github.com/jhspetersson/fselect)
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole)/[croc](https://github.com/schollz/croc)/[file.pizza](https://file.pizza/)/[ncp](https://www.fefe.de/ncp/)/[instant.io](https://instant.io/) - share files

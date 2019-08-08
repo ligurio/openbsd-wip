@@ -13,7 +13,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 * [fselect](https://github.com/jhspetersson/fselect)
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
-* [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole)/[file.pizza](https://file.pizza/)/[ncp](https://www.fefe.de/ncp/)/[instant.io](https://instant.io/) - share files
+* [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole)/[croc](https://github.com/schollz/croc)/[file.pizza](https://file.pizza/)/[ncp](https://www.fefe.de/ncp/)/[instant.io](https://instant.io/) - share files
 * [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
 * [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop)
 * bitwarden-ruby https://github.com/jcs/bitwarden-ruby

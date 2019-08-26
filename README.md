@@ -21,6 +21,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 * JabRef
 * [gotify](https://gotify.net/) - a simple server for sending and receiving messages
+* [Roomba980-Python](https://github.com/NickWaterton/Roomba980-Python)
 
 ----------
 

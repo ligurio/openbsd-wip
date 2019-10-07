@@ -25,6 +25,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ----------
 
+* [xapers](https://finestructure.net/xapers/)/[papis](https://papis.readthedocs.io/en/latest/)
 * grabc http://www.muquit.com/muquit/software/grabc/grabc.html
 * Garmin: [garmin-connect-export](https://github.com/kjkjava/garmin-connect-export), [GcpUploader](https://github.com/dlotton/GcpUploader), [postrunner](https://github.com/scrapper/postrunner)
 * PeerTube (see https://github.com/Chocobozzz/PeerTube/issues/1392)

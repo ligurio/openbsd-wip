@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* [geneweb](https://geneweb.tuxfamily.org/)
 * [albert](https://github.com/albertlauncher/albert)
 * [fselect](https://github.com/jhspetersson/fselect)
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)

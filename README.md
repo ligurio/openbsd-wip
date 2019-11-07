@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* https://github.com/jcs/ssh-agent-card-prompt
 * [geneweb](https://geneweb.tuxfamily.org/)
 * [albert](https://github.com/albertlauncher/albert)
 * [fselect](https://github.com/jhspetersson/fselect)

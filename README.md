@@ -11,6 +11,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
+* https://github.com/AdguardTeam/AdGuardHome
 * WebDAV https://github.com/hacdias/webdav?files=1
 * https://github.com/jcs/ssh-agent-card-prompt
 * [geneweb](https://geneweb.tuxfamily.org/)

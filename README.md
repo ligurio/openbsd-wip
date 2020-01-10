@@ -13,7 +13,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 * https://github.com/EmbarkStudios/wireguard-ui
 * https://github.com/AdguardTeam/AdGuardHome
-* WebDAV https://github.com/hacdias/webdav?files=1
+* [WebDAV](https://github.com/hacdias/webdav?files=1) OR [http.upload](https://github.com/wmark/http.upload)
 * https://github.com/jcs/ssh-agent-card-prompt
 * [geneweb](https://geneweb.tuxfamily.org/)
 * [albert](https://github.com/albertlauncher/albert)

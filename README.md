@@ -11,25 +11,25 @@ Instead of having it rot in a corner of a mailinglist.
 
 ### TODO
 
-* https://github.com/EmbarkStudios/wireguard-ui
-* https://github.com/AdguardTeam/AdGuardHome
 * [WebDAV](https://github.com/hacdias/webdav?files=1) OR [http.upload](https://github.com/wmark/http.upload)
 * https://github.com/jcs/ssh-agent-card-prompt
-* [geneweb](https://geneweb.tuxfamily.org/)
-* [albert](https://github.com/albertlauncher/albert)
-* [fselect](https://github.com/jhspetersson/fselect)
-* [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
-* [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole)/[croc](https://github.com/schollz/croc)/[file.pizza](https://file.pizza/)/[ncp](https://www.fefe.de/ncp/)/[instant.io](https://instant.io/) - share files
 * [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
 * [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop) OR [Piwigo](https://piwigo.org/)
 * bitwarden-go https://github.com/VictorNine/bitwarden-go
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
-* JabRef
-* [gotify](https://gotify.net/) - a simple server for sending and receiving messages
-* [Roomba980-Python](https://github.com/NickWaterton/Roomba980-Python)
 
 ----------
 
+* [gotify](https://gotify.net/) - a simple server for sending and receiving messages
+* JabRef
+* [Roomba980-Python](https://github.com/NickWaterton/Roomba980-Python)
+* [Sharedrop](https://github.com/cowbell/sharedrop)/[magic-wormhole](https://github.com/warner/magic-wormhole)/[croc](https://github.com/schollz/croc)/[file.pizza](https://file.pizza/)/[ncp](https://www.fefe.de/ncp/)/[instant.io](https://instant.io/) - share files
+* [geneweb](https://geneweb.tuxfamily.org/)
+* [albert](https://github.com/albertlauncher/albert)
+* [fselect](https://github.com/jhspetersson/fselect)
+* [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
+* https://github.com/EmbarkStudios/wireguard-ui
+* https://github.com/AdguardTeam/AdGuardHome
 * [Aapche Guacamole](https://guacamole.apache.org/)
 * [xapers](https://finestructure.net/xapers/)/[papis](https://papis.readthedocs.io/en/latest/)
 * grabc http://www.muquit.com/muquit/software/grabc/grabc.html

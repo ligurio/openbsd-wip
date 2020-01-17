@@ -20,6 +20,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ----------
 
+* [Shinobi](https://gitlab.com/Shinobi-Systems/ShinobiCE)
 * [gotify](https://gotify.net/) - a simple server for sending and receiving messages
 * JabRef
 * [Roomba980-Python](https://github.com/NickWaterton/Roomba980-Python)

@@ -15,11 +15,12 @@ Instead of having it rot in a corner of a mailinglist.
 * https://github.com/jcs/ssh-agent-card-prompt
 * [netdata](https://github.com/netdata/netdata/) - https://github.com/netdata/netdata/pull/4192
 * [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop) OR [Piwigo](https://piwigo.org/)
-* bitwarden-go https://github.com/VictorNine/bitwarden-go
+* [bitwarden-go](https://github.com/VictorNine/bitwarden-go), [bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 
 ----------
 
+* [calibre-web](https://github.com/janeczku/calibre-web)
 * [Shinobi](https://gitlab.com/Shinobi-Systems/ShinobiCE)
 * [gotify](https://gotify.net/) - a simple server for sending and receiving messages
 * JabRef

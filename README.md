@@ -20,6 +20,7 @@ Instead of having it rot in a corner of a mailinglist.
 
 ----------
 
+* [sagan](https://gist.github.com/litew/1e94730ed1b862aa59d4c6b065a0d4a9)
 * [calibre-web](https://github.com/janeczku/calibre-web)
 * [Shinobi](https://gitlab.com/Shinobi-Systems/ShinobiCE)
 * [gotify](https://gotify.net/) - a simple server for sending and receiving messages
@@ -32,7 +33,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Evergreen CI](https://github.com/evergreen-ci/evergreen)/[Concourse CI](https://concourse.ci/)/[Drone.io](https://drone.io/)
 * https://github.com/EmbarkStudios/wireguard-ui
 * https://github.com/AdguardTeam/AdGuardHome
-* [Aapche Guacamole](https://guacamole.apache.org/)
+* [Apache Guacamole](https://guacamole.apache.org/)
 * [xapers](https://finestructure.net/xapers/)/[papis](https://papis.readthedocs.io/en/latest/)
 * grabc http://www.muquit.com/muquit/software/grabc/grabc.html
 * Garmin: [garmin-connect-export](https://github.com/kjkjava/garmin-connect-export), [GcpUploader](https://github.com/dlotton/GcpUploader), [postrunner](https://github.com/scrapper/postrunner)

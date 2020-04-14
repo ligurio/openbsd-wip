@@ -19,7 +19,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
 
 ----------
-
+* https://github.com/t-brown/mcds - mutt + CardDAV
 * [sagan](https://gist.github.com/litew/1e94730ed1b862aa59d4c6b065a0d4a9)
 * [calibre-web](https://github.com/janeczku/calibre-web)
 * [Shinobi](https://gitlab.com/Shinobi-Systems/ShinobiCE)

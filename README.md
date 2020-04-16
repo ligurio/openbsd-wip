@@ -17,7 +17,7 @@ Instead of having it rot in a corner of a mailinglist.
 * [photoprism](https://photoprism.org/) OR [50mm](https://github.com/agile-leaf/50mm) OR [Colorimetry](https://git.matthiasloibl.com/archive/colorimetry/src/branch/develop) OR [Piwigo](https://piwigo.org/)
 * [bitwarden-go](https://github.com/VictorNine/bitwarden-go), [bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs)
 * [Home Assistant](http://openbsd-archive.7691.n7.nabble.com/new-productivity-homeassistant-hass-fin-td335133.html)
-
+* [Mailpile](https://github.com/mailpile/Mailpile)
 ----------
 * https://github.com/t-brown/mcds - mutt + CardDAV
 * [sagan](https://gist.github.com/litew/1e94730ed1b862aa59d4c6b065a0d4a9)

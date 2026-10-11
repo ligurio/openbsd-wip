@@ -1,0 +1,7 @@
+@bin bin/snac
+@man man/man1/snac.1
+@man man/man5/snac.5
+@man man/man8/snac.8
+share/examples/snac/
+share/examples/snac/login.conf
+share/examples/snac/snac.rc

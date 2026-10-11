@@ -1,0 +1,9 @@
+snac (Social Networks Are Crap) is a simple, minimalistic ActivityPub
+instance written in portable C.  It runs as a daemon, normally behind a
+TLS-enabled HTTP server, and implements enough of the ActivityPub and
+Mastodon APIs to federate with other Fediverse software.
+
+It is lightweight with minimal dependencies (libcurl and OpenSSL only),
+needs no database (all data is stored as plain files) and offers a simple
+but effective web interface.  It is multiuser, supports the Mastodon API
+so compatible apps can be used, and uses neither JavaScript nor cookies.

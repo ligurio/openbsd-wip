@@ -1,0 +1,11 @@
+--- etc/sagan.yaml.orig
++++ etc/sagan.yaml
+@@ -203,7 +203,7 @@
+ 
+   mmap-ipc: 
+ 
+-    ipc-directory: /dev/shm
++    ipc-directory: /var/sagan/mmap
+     xbit: $MMAP_DEFAULT
+     flexbit: $MMAP_DEFAULT
+     after: $MMAP_DEFAULT

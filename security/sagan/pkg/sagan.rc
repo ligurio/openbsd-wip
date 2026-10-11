@@ -1,0 +1,19 @@
+#!/bin/ksh
+
+daemon="${TRUEPREFIX}/bin/sagan"
+daemon_flags="-f ${SYSCONFDIR}/sagan.yaml"
+daemon_user="_sagan"
+
+. /etc/rc.d/rc.subr
+
+pexp="${daemon} .*"
+
+rc_pre() {
+	/usr/bin/install -d -o _sagan -g _sagan -m 0750 /var/log/sagan
+	/usr/bin/install -d -o _sagan -g _sagan -m 0750 /var/run/sagan
+	/usr/bin/install -d -o _sagan -g _sagan -m 0750 ${LOCALSTATEDIR}/sagan
+	/usr/bin/install -d -o _sagan -g _sagan -m 0750 ${LOCALSTATEDIR}/sagan/fifo
+	/usr/bin/install -d -o _sagan -g _sagan -m 0750 ${LOCALSTATEDIR}/sagan/mmap
+}
+
+rc_cmd $1

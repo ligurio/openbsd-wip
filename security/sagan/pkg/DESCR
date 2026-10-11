@@ -1,0 +1,12 @@
+Sagan is an open source high performance, real-time log analysis
+and correlation engine.  It is written in C and uses a multi-threaded
+architecture to deliver high performance log and event analysis.
+
+The Sagan structure and rules work similarly to the Suricata and Snort IDS
+engines, which allows Sagan to correlate log events with these systems.
+Sagan supports many output formats, log normalization via liblognorm,
+GeoIP detection, script execution on events and automatic firewall support.
+
+Sagan reads syslog-style events from a FIFO or a file and matches them
+against Suricata/Snort-like rules, writing alerts to its own log, to
+syslog or in Suricata EVE JSON format.

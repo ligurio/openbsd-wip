@@ -1,0 +1,38 @@
++-----------------------------------------------------------------------
+| Running Sagan
++-----------------------------------------------------------------------
+
+Sagan is configured in ${SYSCONFDIR}/sagan.yaml.  An example configuration
+is installed as:
+
+	${TRUEPREFIX}/share/examples/sagan/sagan.yaml
+
+Copy it into place and adjust it to your needs:
+
+	# cp ${TRUEPREFIX}/share/examples/sagan/sagan.yaml ${SYSCONFDIR}/sagan.yaml
+
+Sagan does not ship any rules.  Download a ruleset (for example from
+https://github.com/quadrantsec/sagan-rules) and point $RULE_PATH at it.
+
+Sagan reads events from a FIFO.  By default the example configuration
+uses:
+
+	${LOCALSTATEDIR}/sagan/fifo/sagan.fifo
+
+Feed it from your syslog daemon.  For example, with syslog-ng:
+
+	destination sagan {
+		pipe("${LOCALSTATEDIR}/sagan/fifo/sagan.fifo"
+		    template("$SOURCEIP|$FACILITY|$PRIORITY|$LEVEL|$TAG|"
+		    "$YEAR-$MONTH-$DAY|$HOUR:$MIN:$SEC|$PROGRAM| $MSG\n")
+		    template-escape(no));
+	};
+	log { source(s_sys); destination(sagan); };
+
+The rc.d script is installed and enabled with:
+
+	# rcctl enable sagan
+	# rcctl start sagan
+
+Sagan runs as the _sagan user.  Its log, pid file and memory mapped IPC
+files live in /var/log/sagan, /var/run/sagan and ${LOCALSTATEDIR}/sagan/mmap.

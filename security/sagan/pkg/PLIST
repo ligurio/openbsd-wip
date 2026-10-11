@@ -1,0 +1,6 @@
+@newgroup _sagan:720
+@newuser _sagan:720:_sagan::Sagan account:/var/sagan:/sbin/nologin
+@rcscript ${RCDIR}/sagan
+@bin bin/sagan
+@man man/man8/sagan.8
+share/examples/sagan/sagan.yaml

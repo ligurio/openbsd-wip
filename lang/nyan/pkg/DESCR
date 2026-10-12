@@ -1,0 +1,7 @@
+nyan is a data description language and library, designed for and used
+by the openage project.
+
+It is a hierarchical, strongly typed configuration and modding language
+with inheritance, patches and a strict type system.  The package provides
+the shared libnyan library, its C++ headers and the nyancat command line
+tool.

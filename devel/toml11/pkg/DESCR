@@ -1,0 +1,6 @@
+toml11 is a C++11 header-only library for parsing and encoding TOML
+(Tom's Obvious, Minimal Language) configuration files.
+
+It provides an API for reading and writing TOML documents, a parser with
+detailed error messages and support for the TOML v1.0.0 specification.
+Only a C++11 compiler is required.

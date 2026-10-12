@@ -1,52 +1,75 @@
-# $OpenBSD $
+COMMENT =		free engine clone of the Genie Engine (Age of Empires II)
 
-COMMENT =		free open source clone of the Age of Empires II engine
-
-DISTNAME =		master
-PKGNAME =		openage-${DISTNAME}-1
-
+V =			0.6.0
+DISTNAME =		openage-${V}
 CATEGORIES =		games
-HOMEPAGE =		http://openage.sft.mx/
+
+HOMEPAGE =		https://openage.dev/
+
 MAINTAINER =		Sergey Bronnikov <estetus@gmail.com>
 
-# GNU GPLv3
-PERMIT_PACKAGE_CDROM =	Yes
+# GPLv3
+PERMIT_PACKAGE =	Yes
 
-WANTLIB += 		GL GLEW GLU ICE SDL2 SM X11 Xext c m pthread
+GH_ACCOUNT =		SFTtech
+GH_PROJECT =		openage
+GH_TAGNAME =		v${V}
 
-MASTER_SITES =		https://github.com/SFTtech/openage/archive/
-
-MODGCC4_ARCHS=          amd64
-MODGCC4_LANGS=          c++
+COMPILER =		base-clang ports-gcc
+COMPILER_LANGS =	c++
 
 MODULES =		devel/cmake \
-			gcc4
-BUILD_DEPENDS =		audio/opus \
+			lang/python
+
+MODPY_RUNDEP =		No
+
+MODCMAKE_LDFLAGS =	-L${LOCALBASE}/lib
+
+SHARED_LIBS +=		openage		0.0
+
+WANTLIB +=		${COMPILER_LIBCXX} GL Qt6Core Qt6Gui Qt6Multimedia
+WANTLIB +=		Qt6Network Qt6OpenGL Qt6Qml Qt6Quick epoxy execinfo
+WANTLIB +=		fontconfig freetype harfbuzz m nyan ogg opus opusfile
+WANTLIB +=		png pthread util z
+
+LIB_DEPENDS =		audio/libogg \
+			audio/opus \
 			audio/opusfile \
-			devel/doxygen,-main \
-			devel/glib \
-			devel/ninja \
-			devel/sdl2 \
-			devel/sdl2-image \
-			graphics/freeglut \
-			graphics/ftgl \
-			graphics/glew \
-			lang/gcc/4.8,-main \
-			lang/python/3.4
+			devel/harfbuzz \
+			graphics/png \
+			lang/nyan \
+			x11/qt6/qtbase \
+			x11/qt6/qtdeclarative \
+			x11/qt6/qtmultimedia
 
-#RUN_DEPENDS =		graphics/py-Imaging,-main
-LIB_DEPENDS =		graphics/glew \
-			devel/sdl2
+BUILD_DEPENDS =		archivers/py-lz4 \
+			devel/gettext,-runtime \
+			devel/py-setuptools \
+			devel/toml11 \
+			graphics/py-Pillow \
+			lang/cython \
+			math/eigen3 \
+			math/py-numpy \
+			textproc/py-pygments \
+			textproc/py-toml \
+			www/py-jinja2 \
+			www/py-mako
 
-CONFIGURE_ENV +=	-DCMAKE_INCLUDE_PATH=${X11BASE}/include \
+RUN_DEPENDS =		graphics/py-Pillow \
+			math/py-numpy \
+			textproc/py-pygments \
+			www/py-jinja2
+
+CONFIGURE_ARGS =	-DCMAKE_INCLUDE_PATH=${X11BASE}/include \
 			-DCMAKE_LIBRARY_PATH=${X11BASE}/lib \
-			-DOPUSFILE_INCLUDE_DIR=${LOCALBASE}/include/opus
-CONFIGURE_ARGS +=	-DCMAKE_INCLUDE_PATH=${X11BASE}/include \
-			-DCMAKE_LIBRARY_PATH=${X11BASE}/lib \
-			-DOPUSFILE_INCLUDE_DIR=${LOCALBASE}/include/opus \
-			-DFREETYPE_INCLUDE_DIR=${X11BASE}/include/freetype2
+			-DPython3_EXECUTABLE=${MODPY_BIN} \
+			-DWANT_BACKTRACE=false \
+			-DWANT_INOTIFY=false \
+			-DWANT_GPERFTOOLS_PROFILER=false \
+			-DWANT_IWYU=false \
+			-DWANT_VULKAN=false \
+			-DGLOBAL_CONFIG_DIR=${PREFIX}/share/openage
 
-WRKDIST =		${WRKDIR}/openage-master/
-WRKSRC =		${WRKDIR}/openage-master/
+NO_TEST =		Yes
 
 .include <bsd.port.mk>

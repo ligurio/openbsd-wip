@@ -1,0 +1,20 @@
+#!/bin/ksh
+
+daemon="${TRUEPREFIX}/bin/tarantool"
+daemon_flags="${SYSCONFDIR}/tarantool/init.lua"
+daemon_user="_tarantool"
+
+. /etc/rc.d/rc.subr
+
+pexp="${daemon} .*"
+
+rc_pre() {
+	/usr/bin/install -d -o _tarantool -g _tarantool -m 0750 \
+		${LOCALSTATEDIR}/db/tarantool
+	/usr/bin/install -d -o _tarantool -g _tarantool -m 0750 \
+		/var/log/tarantool
+	/usr/bin/install -d -o _tarantool -g _tarantool -m 0750 \
+		/var/run/tarantool
+}
+
+rc_cmd $1

@@ -1,0 +1,12 @@
+Index: src/CMakeLists.txt
+--- src/CMakeLists.txt.orig
++++ src/CMakeLists.txt
+@@ -314,7 +314,7 @@
+     set (common_libraries ${common_libraries} dl rt)
+ endif()
+ 
+-if (TARGET_OS_FREEBSD AND NOT TARGET_OS_DEBIAN_FREEBSD)
++if (TARGET_OS_FREEBSD AND NOT TARGET_OS_DEBIAN_FREEBSD AND NOT TARGET_OS_OPENBSD)
+     find_library (INTL intl)
+     if (NOT INTL)
+         message(FATAL_ERROR "intl library not found")

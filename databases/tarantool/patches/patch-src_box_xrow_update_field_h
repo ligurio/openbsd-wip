@@ -1,0 +1,12 @@
+Index: src/box/xrow_update_field.h
+--- src/box/xrow_update_field.h.orig
++++ src/box/xrow_update_field.h
+@@ -33,7 +33,7 @@
+ #include "trivia/util.h"
+ #include "tt_static.h"
+ #include "salad/stailq.h"
+-#include "json/json.h"
++#include "lib/json/json.h"
+ #include "bit/int96.h"
+ #include "mp_decimal.h"
+ #include "small/region.h"

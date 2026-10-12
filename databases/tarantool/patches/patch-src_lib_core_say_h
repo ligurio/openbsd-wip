@@ -1,0 +1,11 @@
+Index: src/lib/core/say.h
+--- src/lib/core/say.h.orig
++++ src/lib/core/say.h
+@@ -36,6 +36,7 @@
+ #include <stdarg.h>
+ #include <errno.h>
+ #include <sys/types.h> /* pid_t */
++#include <pthread.h>
+ #include <tarantool_ev.h>
+ #include "small/rlist.h"
+ #include "fiber_cond.h"

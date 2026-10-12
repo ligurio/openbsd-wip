@@ -1,0 +1,29 @@
++-----------------------------------------------------------------------
+| Running Tarantool
++-----------------------------------------------------------------------
+
+Tarantool is started from an instance script passed on the command
+line.  An example script is installed as:
+
+	${TRUEPREFIX}/share/examples/tarantool/init.lua
+
+Copy it into place and adjust it to your needs:
+
+	# mkdir -p ${SYSCONFDIR}/tarantool
+	# cp ${TRUEPREFIX}/share/examples/tarantool/init.lua \
+		${SYSCONFDIR}/tarantool/init.lua
+
+The rc.d(8) script is installed and enabled with:
+
+	# rcctl enable tarantool
+	# rcctl start tarantool
+
+Tarantool runs as the _tarantool user.  Its data, log and pid files
+live in ${LOCALSTATEDIR}/db/tarantool, /var/log/tarantool and
+/var/run/tarantool respectively.
+
+The interactive console and the tarantool(1) command line can be used
+to manage an instance:
+
+	$ tarantool
+	localhost> box.cfg{listen = 3301}

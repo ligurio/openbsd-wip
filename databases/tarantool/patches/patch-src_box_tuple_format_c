@@ -1,0 +1,12 @@
+Index: src/box/tuple_format.c
+--- src/box/tuple_format.c.orig
++++ src/box/tuple_format.c
+@@ -31,7 +31,7 @@
+ #include "tuple_format.h"
+ #include "bit/bit.h"
+ #include "fiber.h"
+-#include "json/json.h"
++#include "lib/json/json.h"
+ #include "trivia/util.h"
+ #include "tuple.h"
+ #include "tuple_builder.h"

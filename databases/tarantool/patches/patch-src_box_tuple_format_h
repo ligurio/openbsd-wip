@@ -1,0 +1,12 @@
+Index: src/box/tuple_format.h
+--- src/box/tuple_format.h.orig
++++ src/box/tuple_format.h
+@@ -34,7 +34,7 @@
+ #include "key_def.h"
+ #include "field_def.h"
+ #include "errinj.h"
+-#include "json/json.h"
++#include "lib/json/json.h"
+ #include "tuple_dictionary.h"
+ #include "tt_compression.h"
+ #include "field_map.h"

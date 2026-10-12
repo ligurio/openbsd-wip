@@ -2,12 +2,14 @@
 # Build ports and collect their packages into ci-packages/.
 # Usage: build-ports.sh [<category>/<port>]
 #   with an argument: build only that port (one port per CI job)
-#   without: read changed-ports.txt ("ALL" = every port)
+#   without: read changed-ports.txt ("ALL" = every port); each line may
+#            carry extra packages as "<category>/<port>\t<packages>"
 # Runs inside the OpenBSD VM; logs go to ci-logs/.
 #
 # Redirections are intentionally performed by the invoking user (not by
 # sudo), so the resulting log files stay owned by that user.
-# shellcheck disable=SC2024
+# SC2086 is intentional: the package list must be split into arguments.
+# shellcheck disable=SC2024,SC2086
 set -u
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -34,12 +36,27 @@ if [ -z "$ports" ]; then
 	exit 0
 fi
 
-while read -r port; do
+while IFS=$'\t' read -r port pkgs; do
 	[ -n "$port" ] || continue
 	name="$(echo "$port" | tr '/' '_')"
 	log="ci-logs/${name}.log"
 	echo "::group::${port}"
-	if sudo make -C "$port" fetch    >"$log" 2>&1 \
+
+	# Install the packages this port needs before building it. The list is
+	# carried in the second column of changed-ports.txt (see PORT_PACKAGES
+	# in openbsd.yml), so unrelated ports do not pull in anything extra.
+	if [ -n "${pkgs:-}" ]; then
+		echo ">>> pkg_add -I ${pkgs}" >"$log"
+		if ! sudo pkg_add -I ${pkgs} >>"$log" 2>&1; then
+			echo "FAIL: pkg_add for ${port}"
+			tail -n 40 "$log"
+			status=1
+			echo "::endgroup::"
+			continue
+		fi
+	fi
+
+	if sudo make -C "$port" fetch    >>"$log" 2>&1 \
 		&& sudo make -C "$port" checksum >>"$log" 2>&1 \
 		&& sudo make -C "$port" package  >>"$log" 2>&1; then
 		echo "PASS: ${port}"

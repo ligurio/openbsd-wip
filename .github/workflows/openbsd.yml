@@ -16,6 +16,11 @@ concurrency:
 env:
   OPENBSD_VERSIONS: '7.9'
   OPENBSD_ARCHITECTURES: 'x86-64'
+  # Extra packages needed to build specific ports, keyed by <category>/<port>.
+  # They are expanded into changed-ports.txt (port<TAB>packages) and installed
+  # by build-ports.sh right before that port is built, so unrelated ports do
+  # not pull in anything extra.
+  PORT_PACKAGES: '{"productivity/pimsync": "rust cargo-generate-vendor sqlite3"}'
 
 jobs:
   changed:

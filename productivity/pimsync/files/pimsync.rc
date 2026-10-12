@@ -1,0 +1,27 @@
+#!/bin/ksh
+#
+# Example rc.d(8) script for running pimsync in daemon mode.
+#
+# pimsync reads its configuration and stores its state per user, so a
+# dedicated account is recommended:
+#
+#	useradd -c "pimsync daemon" -d /var/pimsync -s /sbin/nologin _pimsync
+#	install -d -o _pimsync -g _pimsync /var/pimsync/.config/pimsync
+#
+# Copy this file to /etc/rc.d/pimsync, put the configuration in
+# /var/pimsync/.config/pimsync/pimsync.conf, then enable the service with
+# "rcctl enable pimsync" and start it with "rcctl start pimsync".
+
+daemon="/usr/local/bin/pimsync"
+daemon_flags="-v info daemon"
+daemon_user="_pimsync"
+daemon_execdir="/var/pimsync"
+
+. /etc/rc.d/rc.subr
+
+rc_bg=YES
+rc_reload=NO
+
+pexp="pimsync: pimsync.*daemon"
+
+rc_cmd $1

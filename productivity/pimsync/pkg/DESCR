@@ -1,0 +1,10 @@
+pimsync synchronises calendars and contacts between different storages,
+including plain local directories and remote CalDAV, CardDAV and Webcal
+servers.
+
+Collections can be grouped into pairs, a single storage may take part in
+more than one pair, and conflicting modifications are detected and reported
+instead of being silently overwritten. Synchronisation can be run once or
+continuously in daemon mode.
+
+pimsync is the successor and a reimplementation of vdirsyncer.

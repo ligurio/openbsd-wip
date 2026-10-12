@@ -28,9 +28,26 @@ AUTOCONF_VERSION =	2.69
 AUTOMAKE_VERSION =	1.15
 CONFIGURE_ARGS =	--disable-gzip \
 			--disable-esmtp \
-			--disable-geoip \
-			--disable-redis \
 			--disable-libpcap
+
+FLAVORS =		geoip redis
+FLAVOR ?=
+
+.if ${FLAVOR:Mgeoip}
+CONFIGURE_ARGS +=	--enable-geoip
+LIB_DEPENDS +=		net/libmaxminddb
+WANTLIB +=		maxminddb
+.else
+CONFIGURE_ARGS +=	--disable-geoip
+.endif
+
+.if ${FLAVOR:Mredis}
+CONFIGURE_ARGS +=	--enable-redis
+LIB_DEPENDS +=		databases/hiredis
+WANTLIB +=		hiredis
+.else
+CONFIGURE_ARGS +=	--disable-redis
+.endif
 
 NO_TEST =		Yes
 

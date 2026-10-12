@@ -36,3 +36,37 @@ The rc.d script is installed and enabled with:
 
 Sagan runs as the _sagan user.  Its log, pid file and memory mapped IPC
 files live in /var/log/sagan, /var/run/sagan and ${LOCALSTATEDIR}/sagan/mmap.
+
++-----------------------------------------------------------------------
+| Memory mapped IPC files
++-----------------------------------------------------------------------
+
+Sagan pre-allocates large, mostly sparse files under
+${LOCALSTATEDIR}/sagan/mmap to keep track of flexbits, thresholds, afters
+and xbits.  Their size grows with the $MMAP_DEFAULT variable in sagan.yaml.
+
+For performance you can back this directory with memory, for example:
+
+	# tmpfs ${LOCALSTATEDIR}/sagan/mmap mfs rw,-s32m 0 0
+
+or, without an fstab entry:
+
+	# mount_mfs -s 32m swap ${LOCALSTATEDIR}/sagan/mmap
+
+Note that these files are what lets Sagan remember flexbit, threshold and
+after state across restarts.  A memory backed ${LOCALSTATEDIR}/sagan/mmap
+loses that state on reboot, so only use it if you do not need persistence.
+
++-----------------------------------------------------------------------
+| Optional features
++-----------------------------------------------------------------------
+
+The port builds with GeoIP and Redis support disabled by default.  Enable
+them by selecting the matching flavor when building the package:
+
+	FLAVOR=geoip	# Maxmind GeoIP2 support
+	FLAVOR=redis	# Redis as a flexbit storage backend
+
+GeoIP requires a GeoLite2 database, configured via the "country_database"
+option in the geoip section of sagan.yaml.  Redis requires a running Redis
+server, configured via the redis-server section.

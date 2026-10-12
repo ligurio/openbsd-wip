@@ -1,0 +1,7 @@
+litclock displays a quote from literature that mentions the current time,
+for example "It was a bright cold day in April, and the clocks were
+striking thirteen."  The relevant time expression is highlighted in the
+terminal, and a language can be selected on the command line.
+
+Quote collections for English, Russian and Portuguese are included.  The
+default language is Russian.

@@ -1,0 +1,8 @@
+--- litclock.orig
++++ litclock
+@@ -1,4 +1,4 @@
+-#!/usr/bin/bash
++#!/usr/local/bin/bash
+ 
+ #
+ # Copyright (c) 2022-2025, Sergey Bronnikov

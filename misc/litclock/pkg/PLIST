@@ -1,0 +1,6 @@
+@man man/man1/litclock.1
+bin/litclock
+share/litclock/
+share/litclock/quotes_en.csv
+share/litclock/quotes_pt.csv
+share/litclock/quotes_ru.csv

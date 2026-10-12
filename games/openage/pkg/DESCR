@@ -1,5 +1,8 @@
-We are rewriting its engine in C++11 from scratch (GPLv3+). Including
-"modern" technologies like OpenGL and GLSL, we aim to create an exact
-clone (for now), using the original media files. This allows people
-using GNU/Linux to play the game natively, minus features, plus
-additional epic bugs (or was it vice versa?).
+openage is a volunteer project to create a free engine clone of the Genie
+Engine used by Age of Empires, Age of Empires II and Star Wars: Galactic
+Battlegrounds.
+
+It uses the original game assets (such as sounds and graphics), but does
+not ship them, so one of the original games is required to play.  The
+engine core is written in C++20, with Python 3 scripting and media
+conversion, a Cython glue layer and a Qt6 based graphical interface.

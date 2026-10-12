@@ -56,8 +56,30 @@ while IFS=$'\t' read -r port pkgs; do
 		fi
 	fi
 
+	fetched=0
 	if sudo make -C "$port" fetch    >>"$log" 2>&1 \
-		&& sudo make -C "$port" checksum >>"$log" 2>&1 \
+		&& sudo make -C "$port" checksum >>"$log" 2>&1; then
+		fetched=1
+	fi
+
+	# Ports without a committed PLIST get one generated in the VM and
+	# published as an artifact, so it can be committed afterwards.
+	if [ "$fetched" = 1 ] && [ ! -s "${port}/pkg/PLIST" ]; then
+		if sudo make -C "$port" update-plist >>"$log" 2>&1; then
+			# update-plist keeps the previous packing list as a
+			# backup; portcheck would flag it as an extra file.
+			sudo rm -f "${port}/pkg/PLIST.orig"
+			mkdir -p "ci-packages/${name}"
+			sudo install -m 644 -o "$(id -u)" -g "$(id -g)" \
+				"${port}/pkg/PLIST" "ci-packages/${name}/PLIST"
+			echo "Generated PLIST for ${port}"
+		else
+			echo "FAIL: could not generate PLIST for ${port}"
+			tail -n 60 "$log"
+		fi
+	fi
+
+	if [ "$fetched" = 1 ] \
 		&& sudo make -C "$port" package  >>"$log" 2>&1; then
 		echo "PASS: ${port}"
 		tail -n 20 "$log"

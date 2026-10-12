@@ -1,0 +1,28 @@
+Tarantool is an in-memory computing platform consisting of a database
+and an application server.
+
+Key features of the application server:
+
+- A heavily optimized Lua interpreter with a fast tracing JIT compiler,
+  based on LuaJIT 2.1.
+- Cooperative multitasking and non-blocking IO.
+- Persistent queues, sharding and a cluster/application management
+  framework.
+- Access to external databases such as MySQL and PostgreSQL.
+- A rich set of built-in and standalone modules.
+
+Key features of the database:
+
+- MessagePack data format and a MessagePack based client-server protocol.
+- Two data engines: a 100% in-memory one with complete WAL-based
+  persistence and an LSM-tree based one for large data sets.
+- Multiple index types: HASH, TREE, RTREE, BITSET.
+- Document oriented JSON path indexes.
+- Asynchronous master-master and synchronous quorum-based replication.
+- RAFT-based automatic leader election for single-leader configurations.
+- Authentication and access control.
+- ANSI SQL, including views, joins, referential and check constraints.
+- Connectors for many programming languages.
+
+The database is a C extension of the application server and can be
+turned off.

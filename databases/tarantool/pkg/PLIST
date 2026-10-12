@@ -1,0 +1,16 @@
+@newgroup _tarantool:724
+@newuser _tarantool:724:_tarantool::Tarantool account:${LOCALSTATEDIR}/db/tarantool:/sbin/nologin
+@rcscript ${RCDIR}/tarantool
+@bin bin/tarantool
+@man man/man1/tarantool.1
+include/tarantool/
+include/tarantool/lauxlib.h
+include/tarantool/lua.h
+include/tarantool/lua.hpp
+include/tarantool/luaconf.h
+include/tarantool/luajit.h
+include/tarantool/lualib.h
+include/tarantool/lmisclib.h
+include/tarantool/module.h
+share/examples/tarantool/
+share/examples/tarantool/init.lua

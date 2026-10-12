@@ -1,0 +1,30 @@
+Index: src/lib/core/sio.c
+--- src/lib/core/sio.c.orig
++++ src/lib/core/sio.c
+@@ -499,7 +499,7 @@
+ 	return "<unresolved>";
+ }
+ 
+-#ifdef __APPLE__
++#if defined(__APPLE__) || defined(__OpenBSD__)
+ /**
+  * 'man' on getprotobyname/number() on MacOS locally says "These functions use
+  * a thread-specific data space". But looking it up online tells a different
+@@ -528,7 +528,7 @@
+ int
+ sio_getprotobyname(const char *name)
+ {
+-#ifdef __APPLE__
++#if defined(__APPLE__) || defined(__OpenBSD__)
+ 	tt_pthread_mutex_lock(&protomutex);
+ 	struct protoent *ent = getprotobyname(name);
+ 	int rc = ent == NULL ? -1 : ent->p_proto;
+@@ -551,7 +551,7 @@
+ char *
+ sio_getprotobynumber(int proto)
+ {
+-#ifdef __APPLE__
++#if defined(__APPLE__) || defined(__OpenBSD__)
+ 	tt_pthread_mutex_lock(&protomutex);
+ 	struct protoent *ent = getprotobynumber(proto);
+ 	char *res = ent == NULL ? NULL : xstrdup(ent->p_name);

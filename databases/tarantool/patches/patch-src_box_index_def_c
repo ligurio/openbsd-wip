@@ -1,0 +1,12 @@
+Index: src/box/index_def.c
+--- src/box/index_def.c.orig
++++ src/box/index_def.c
+@@ -32,7 +32,7 @@
+ #include "schema_def.h"
+ #include "identifier.h"
+ #include "tuple_format.h"
+-#include "json/json.h"
++#include "lib/json/json.h"
+ #include "fiber.h"
+ #include "tt_static.h"
+ 

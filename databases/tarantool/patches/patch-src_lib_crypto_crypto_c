@@ -1,0 +1,21 @@
+Index: src/lib/crypto/crypto.c
+--- src/lib/crypto/crypto.c.orig
++++ src/lib/crypto/crypto.c
+@@ -352,7 +352,7 @@
+ crypto_HMAC_CTX *
+ crypto_HMAC_CTX_new(void)
+ {
+-#if OPENSSL_VERSION_NUMBER < 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ 	HMAC_CTX *ctx = (HMAC_CTX *)OPENSSL_malloc(sizeof(HMAC_CTX));
+ 	if(!ctx){
+ 		return NULL;
+@@ -375,7 +375,7 @@
+ void
+ crypto_HMAC_CTX_free(crypto_HMAC_CTX *ctx)
+ {
+-#if OPENSSL_VERSION_NUMBER < 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ 	HMAC_cleanup(ctx); /* Remove key from memory */
+ 	OPENSSL_free(ctx);
+ #elif OPENSSL_VERSION_NUMBER < 0x30000000L

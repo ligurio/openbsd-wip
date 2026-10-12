@@ -16,6 +16,8 @@ sudo tar -C /usr -xzf /tmp/ports.tar.gz
 # they would be in the official user.list once merged upstream.
 echo '720 _sagan		_sagan		security/sagan' | \
 	sudo tee -a /usr/ports/infrastructure/db/user.list
+echo '724 _tarantool	_tarantool	databases/tarantool' | \
+	sudo tee -a /usr/ports/infrastructure/db/user.list
 echo "PORTSDIR_PATH=/usr/ports:${ROOT}" | sudo tee -a /etc/mk.conf
 # The VM image may ship dependency packages newer than the release ports
 # tree (stable package updates), which makes the WANTLIB version cross-check

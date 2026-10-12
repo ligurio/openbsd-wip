@@ -1,0 +1,12 @@
+Index: src/box/lua/tuple.c
+--- src/box/lua/tuple.c.orig
++++ src/box/lua/tuple.c
+@@ -45,7 +45,7 @@
+ #include "box/tuple.h"
+ #include "box/tuple_convert.h"
+ #include "box/errcode.h"
+-#include "json/json.h"
++#include "lib/json/json.h"
+ #include "mpstream/mpstream.h"
+ 
+ /** {{{ box.tuple Lua library

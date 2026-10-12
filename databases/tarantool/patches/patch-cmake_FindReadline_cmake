@@ -1,0 +1,14 @@
+Index: cmake/FindReadline.cmake
+--- cmake/FindReadline.cmake.orig
++++ cmake/FindReadline.cmake
+@@ -22,6 +22,10 @@
+ 
+ if(BUILD_STATIC)
+     set(READLINE_LIB_NAME libreadline.a)
++elseif(TARGET_OS_OPENBSD)
++    # OpenBSD installs GNU readline as "ereadline" to distinguish it
++    # from the base system libedit.
++    set(READLINE_LIB_NAME ereadline)
+ else()
+     set(READLINE_LIB_NAME readline)
+ endif()

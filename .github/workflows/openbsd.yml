@@ -29,7 +29,7 @@ jobs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       ports: ${{ steps.matrix.outputs.ports }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - if: matrix.version != ''
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - if: matrix.version != ''
         name: Prepare changed ports
@@ -99,7 +99,7 @@ jobs:
 
       - if: always() && matrix.version != ''
         name: Upload packages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: packages-${{ matrix.version }}-${{ matrix.architecture }}
           path: ci-packages/**
@@ -107,7 +107,7 @@ jobs:
 
       - if: always() && matrix.version != ''
         name: Upload build logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: logs-${{ matrix.version }}-${{ matrix.architecture }}
           path: ci-logs/

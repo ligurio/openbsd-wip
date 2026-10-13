@@ -1,0 +1,19 @@
+--- unreliablefs/CMakeLists.txt.orig
++++ unreliablefs/CMakeLists.txt
+@@ -7,7 +7,7 @@
+                      unreliablefs_errinj.c
+                      unreliablefs_ops.c)
+ 
+-find_package(FUSE 2.9 REQUIRED)
++find_package(FUSE 2.6 REQUIRED)
+ 
+ add_definitions(${FUSE_DEFINITIONS})
+ add_executable(${PROJECT_NAME} ${UNRELIABLEFS_SRC})
+@@ -37,5 +37,5 @@
+ add_subdirectory(tests)
+ 
+ install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+-install(FILES "unreliablefs.1" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
+-install(FILES "unreliablefs.conf.5" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man5)
++install(FILES "unreliablefs.1" DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
++install(FILES "unreliablefs.conf.5" DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man5)

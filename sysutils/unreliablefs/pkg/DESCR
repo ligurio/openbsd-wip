@@ -1,0 +1,7 @@
+unreliablefs is a FUSE-based fault injection filesystem.  It allows error
+injections to be changed at runtime using a simple configuration file and
+works as a pass-through filesystem by default.
+
+Supported fault injections are: return a random errno, kill the process that
+invoked a file operation, replace a file operation with a no-op, and slow a
+file operation down.

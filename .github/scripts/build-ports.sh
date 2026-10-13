@@ -86,7 +86,12 @@ while IFS=$'\t' read -r port pkgs; do
 		fi
 	else
 		echo "FAIL: ${port}"
-		tail -n 60 "$log"
+		echo "----- first errors -----"
+		grep -n -B20 -A4 -iE 'error:' "$log" | head -n 200
+		echo "----- missing includes -----"
+		grep -n -iE 'file not found|no such file' "$log" | head -n 20
+		echo "----- tail -----"
+		tail -n 40 "$log"
 		status=1
 	fi
 

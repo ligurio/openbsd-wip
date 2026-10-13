@@ -97,6 +97,14 @@ jobs:
         name: Build ports
         run: bash .github/scripts/build-ports.sh
 
+      # The VM-to-runner sync performed by the custom shell is skipped when
+      # the build command exits non-zero, so pull the results back explicitly
+      # (also after a failure) before the artifacts are uploaded.
+      - if: always() && matrix.version != ''
+        name: Sync VM files back
+        shell: bash
+        run: cpa.sh --sync-files vm-to-runner
+
       - if: always() && matrix.version != ''
         name: Upload packages
         uses: actions/upload-artifact@v7

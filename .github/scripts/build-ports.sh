@@ -19,6 +19,13 @@ mkdir -p ci-logs ci-packages
 
 status=0
 
+show_errors() {
+	echo "--- errors from $1 ---"
+	grep -n -B2 -A20 -E 'CMake Error|Error at|error:' "$1" | tail -n 120 || true
+	echo "--- last 60 lines ---"
+	tail -n 60 "$1"
+}
+
 if [ -n "${1:-}" ]; then
 	ports="$1"
 elif [ ! -f changed-ports.txt ] || grep -qx ALL changed-ports.txt; then
@@ -75,7 +82,7 @@ while IFS=$'\t' read -r port pkgs; do
 			echo "Generated PLIST for ${port}"
 		else
 			echo "FAIL: could not generate PLIST for ${port}"
-			tail -n 60 "$log"
+			show_errors "$log"
 		fi
 	fi
 

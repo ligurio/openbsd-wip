@@ -1,0 +1,21 @@
+Relax the pinned build backends.  Upstream pins exact versions, but the
+ports build frontend (python -m build --no-isolation) verifies the
+build-system requires against the versions available in ports, so the
+pins make the build fail.  Use unversioned requirements instead.
+
+Index: pyproject.toml
+--- pyproject.toml.orig
++++ pyproject.toml
+@@ -1,9 +1,9 @@
+ 
+ [build-system]
+ requires = [
+-    "hatchling==1.27.0",
+-    "hatch-vcs==0.5.0",
+-    "hatch-fancy-pypi-readme==25.1.0",
++    "hatchling",
++    "hatch-vcs",
++    "hatch-fancy-pypi-readme",
+ ]
+ build-backend = "hatchling.build"
+ 

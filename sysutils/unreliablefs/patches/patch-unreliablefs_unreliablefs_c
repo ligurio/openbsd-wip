@@ -1,0 +1,10 @@
+--- unreliablefs/unreliablefs.c.orig
++++ unreliablefs/unreliablefs.c
+@@ -6,6 +6,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <limits.h>
++#include <time.h>
+ #include <stdlib.h>
+ 
+ #include <fuse.h>

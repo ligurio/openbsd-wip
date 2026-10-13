@@ -1,0 +1,10 @@
+--- unreliablefs/unreliablefs_errinj.c.orig
++++ unreliablefs/unreliablefs_errinj.c
+@@ -6,6 +6,7 @@
+ #include <signal.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <time.h>
+ #include <unistd.h>
+ 
+ #include <sys/types.h>

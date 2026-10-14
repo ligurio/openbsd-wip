@@ -23,5 +23,10 @@ echo "PORTSDIR_PATH=/usr/ports:${ROOT}" | sudo tee -a /etc/mk.conf
 # tree (stable package updates), which makes the WANTLIB version cross-check
 # in "make package" fail on version drift. Downgrade it to a warning.
 echo "PKG_CREATE_NO_CHECKS=warn" | sudo tee -a /etc/mk.conf
-sudo pkg_add -I curl
-mkdir -p ci-logs ci-packages
+# Reuse compiled objects between CI runs: the cache directory lives in the
+# workspace so it is synced out of the VM and cached by the workflow.
+echo "USE_CCACHE=Yes" | sudo tee -a /etc/mk.conf
+echo "CCACHE_DIR=${ROOT}/ci-cache/ccache" | sudo tee -a /etc/mk.conf
+echo "CCACHE_ENV=CCACHE_COMPRESS=true CCACHE_MAXSIZE=2G" | sudo tee -a /etc/mk.conf
+sudo pkg_add -I curl ccache
+mkdir -p ci-logs ci-packages ci-cache/ccache

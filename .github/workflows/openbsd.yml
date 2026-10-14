@@ -79,6 +79,15 @@ jobs:
             > changed-ports.txt
 
       - if: matrix.version != ''
+        name: Restore ccache
+        uses: actions/cache@v6
+        with:
+          path: ci-cache
+          key: ccache-${{ matrix.version }}-${{ matrix.architecture }}-${{ github.run_id }}
+          restore-keys: |
+            ccache-${{ matrix.version }}-${{ matrix.architecture }}-
+
+      - if: matrix.version != ''
         name: Start OpenBSD VM
         uses: cross-platform-actions/action@v1.6.0
         with:
@@ -91,15 +100,16 @@ jobs:
 
       - if: matrix.version != ''
         name: Set up ports tree
+        shell: cpa.sh {0} --sync-files runner-to-vm
         run: bash .github/scripts/setup-ports.sh "${{ matrix.version }}"
 
       - if: matrix.version != ''
         name: Build ports
+        shell: cpa.sh {0} --sync-files runner-to-vm
         run: bash .github/scripts/build-ports.sh
 
-      # The VM-to-runner sync performed by the custom shell is skipped when
-      # the build command exits non-zero, so pull the results back explicitly
-      # (also after a failure) before the artifacts are uploaded.
+      # The build steps sync into the VM only, so pull the results (packages,
+      # logs and the updated ccache) back before they are used or cached.
       - if: always() && matrix.version != ''
         name: Sync VM files back
         shell: bash

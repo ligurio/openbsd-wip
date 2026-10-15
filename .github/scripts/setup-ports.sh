@@ -9,9 +9,17 @@ version="${1:-${OPENBSD_VERSION:-}}"
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
-curl -fsSL -o /tmp/ports.tar.gz \
-	"https://cdn.openbsd.org/pub/OpenBSD/${version}/ports.tar.gz"
-sudo tar -C /usr -xzf /tmp/ports.tar.gz
+# The workflow restores ci-src/ from an immutable cache and syncs it into the
+# VM; only download on a cold cache.
+tarball="${ROOT}/ci-src/ports-${version}.tar.gz"
+if [ -f "$tarball" ]; then
+	echo "Using cached ports tarball: $tarball"
+else
+	mkdir -p "$(dirname "$tarball")"
+	curl -fsSL -o "$tarball" \
+		"https://cdn.openbsd.org/pub/OpenBSD/${version}/ports.tar.gz"
+fi
+sudo tar -C /usr -xzf "$tarball"
 # Ports in this tree that create users must register them here, exactly as
 # they would be in the official user.list once merged upstream.
 echo '720 _sagan		_sagan		security/sagan' | \

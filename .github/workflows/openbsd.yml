@@ -88,6 +88,13 @@ jobs:
             ccache-${{ matrix.version }}-${{ matrix.architecture }}-
 
       - if: matrix.version != ''
+        name: Restore ports tarball
+        uses: actions/cache@v6
+        with:
+          path: ci-src
+          key: ports-src-${{ matrix.version }}-${{ matrix.architecture }}
+
+      - if: matrix.version != ''
         name: Start OpenBSD VM
         uses: cross-platform-actions/action@v1.6.0
         with:

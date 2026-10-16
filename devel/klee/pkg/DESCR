@@ -1,0 +1,17 @@
+KLEE is a symbolic virtual machine built on top of the LLVM compiler
+infrastructure.  It executes LLVM bitcode modules with support for
+symbolic values to automatically generate test cases that cover paths
+through a program.
+
+KLEE consists of two main components:
+
+  * The core symbolic virtual machine engine, which runs LLVM bitcode
+    while tracking symbolic values; and
+
+  * A library for replaying computed test inputs on native code, plus a
+    set of auxiliary tools (kleaver, ktest-tool, ktest-gen, ktest-randgen,
+    klee-stats, klee-replay and klee-zesti).
+
+Note that this build does not include the POSIX/uClibc runtime, since
+uClibc is Linux-specific.  KLEE can therefore only execute closed
+programs, i.e. programs that do not rely on an external C library.

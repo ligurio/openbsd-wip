@@ -1,0 +1,30 @@
+KLEE on OpenBSD
+================
+
+POSIX runtime and external libraries
+------------------------------------
+
+KLEE's support for running real (non-closed) programs is built on top of
+uClibc, which is Linux-specific and cannot be built on OpenBSD.  This
+package is therefore configured with -DENABLE_POSIX_RUNTIME=OFF and ships
+only the freestanding, intrinsic, klee-libc, fortify and UBSan runtime
+libraries.
+
+As a result KLEE can only execute closed programs, i.e. programs that do
+not call into an external C library.  For anything else you need to
+provide a bitcode version of the C library yourself.
+
+Memory usage
+------------
+
+By default KLEE uses the deterministic allocator (KDAlloc), which reserves
+large amounts of virtual address space (for example 1 TiB for the heap).
+On OpenBSD `mmap(2)` may refuse such requests depending on `kern.maxdsiz`
+and the amount of swap.  If KLEE aborts with a message about the
+"Deterministic allocator" not being able to allocate a mapping, reduce the
+corresponding sizes, for example:
+
+	$ klee -kdalloc-heap-size=4 -kdalloc-stack-size=4 \
+	    -kdalloc-globals-size=2 -kdalloc-constants-size=2 ...
+
+Alternatively, disable the deterministic allocator with `-no-kdalloc`.

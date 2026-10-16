@@ -1,0 +1,10 @@
+--- tools/klee/main.cpp.orig
++++ tools/klee/main.cpp
+@@ -872,6 +872,7 @@
+   "__assert_rtn",
+   "klee_assert_fail",
+   "__errno_location",
++  "__errno",
+   "__error",
+   "calloc",
+   "_exit",

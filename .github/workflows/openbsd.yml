@@ -20,7 +20,7 @@ env:
   # They are expanded into changed-ports.txt (port<TAB>packages) and installed
   # by build-ports.sh right before that port is built, so unrelated ports do
   # not pull in anything extra.
-  PORT_PACKAGES: '{"productivity/pimsync": "rust cargo-generate-vendor sqlite3", "games/openage": "eigen3 qt6-qtbase qt6-qtdeclarative qt6-qtmultimedia harfbuzz opus opusfile libogg png py3-cython py3-setuptools py3-mako py3-pygments py3-numpy py3-Pillow py3-lz4 py3-toml py3-jinja2", "devel/klee": "llvm%19 z3 sqlite3 py3-tabulate"}'
+  PORT_PACKAGES: '{"productivity/pimsync": "rust cargo-generate-vendor sqlite3", "games/openage": "eigen3 qt6-qtbase qt6-qtdeclarative qt6-qtmultimedia harfbuzz opus opusfile libogg png py3-cython py3-setuptools py3-mako py3-pygments py3-numpy py3-Pillow py3-lz4 py3-tomli_w", "devel/klee": "llvm%19 z3 sqlite3 py3-tabulate"}'
 
 jobs:
   changed:

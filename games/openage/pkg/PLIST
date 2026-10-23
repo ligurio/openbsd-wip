@@ -628,7 +628,6 @@ lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}context.${
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}decorators.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}dll.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}files.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}fsprinting.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}hash.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}iterators.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}math.${MODPY_PYC_MAGIC_TAG}pyc
@@ -639,6 +638,7 @@ lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}strings.${
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}struct.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}system.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}threading.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}toml.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/${MODPY_PYCACHE}version.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/openage/util/bytequeue.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/context.py
@@ -677,7 +677,6 @@ lib/python${MODPY_VERSION}/site-packages/openage/util/fslike/path.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/fslike/test.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/fslike/union.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/fslike/wrapper.py
-lib/python${MODPY_VERSION}/site-packages/openage/util/fsprinting.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/hash.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/iterators.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/math.py
@@ -688,6 +687,7 @@ lib/python${MODPY_VERSION}/site-packages/openage/util/strings.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/struct.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/system.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/threading.py
+lib/python${MODPY_VERSION}/site-packages/openage/util/toml.py
 lib/python${MODPY_VERSION}/site-packages/openage/util/version.py
 lib/python${MODPY_VERSION}/site-packages/openage/versions/
 lib/python${MODPY_VERSION}/site-packages/openage/versions/__init__.py
@@ -798,6 +798,9 @@ share/openage/test/shaders/demo_6_3d.frag.glsl
 share/openage/test/shaders/demo_6_3d.vert.glsl
 share/openage/test/shaders/demo_6_display.frag.glsl
 share/openage/test/shaders/demo_6_display.vert.glsl
+share/openage/test/shaders/demo_7_shader_command.frag.glsl
+share/openage/test/shaders/demo_7_shader_command.vert.glsl
+share/openage/test/shaders/demo_7_snippets/
 share/openage/test/shaders/pathfinding/
 share/openage/test/shaders/pathfinding/demo_0_cost_field.frag.glsl
 share/openage/test/shaders/pathfinding/demo_0_cost_field.vert.glsl

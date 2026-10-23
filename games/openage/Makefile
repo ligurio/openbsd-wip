@@ -1,6 +1,7 @@
 COMMENT =		free engine clone of the Genie Engine (Age of Empires II)
 
 V =			0.6.0
+REVISION =		1
 DISTNAME =		openage-${V}
 CATEGORIES =		games
 
@@ -13,7 +14,7 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		SFTtech
 GH_PROJECT =		openage
-GH_TAGNAME =		v${V}
+GH_COMMIT =		8c7d6306acf42e38de150e024d7323f1421d34c1
 
 COMPILER =		base-clang ports-gcc
 COMPILER_LANGS =	c++
@@ -51,16 +52,20 @@ BUILD_DEPENDS =		archivers/py-lz4 \
 			math/eigen3 \
 			math/py-numpy \
 			textproc/py-pygments \
-			textproc/py-toml \
-			www/py-jinja2 \
+			textproc/py-tomli_w \
 			www/py-mako
 
-RUN_DEPENDS =		graphics/py-Pillow \
+RUN_DEPENDS =		archivers/py-lz4 \
+			graphics/py-Pillow \
 			math/py-numpy \
 			textproc/py-pygments \
-			www/py-jinja2
+			textproc/py-tomli_w \
+			www/py-mako
 
-CONFIGURE_ARGS =	-DCMAKE_INCLUDE_PATH=${X11BASE}/include \
+# OpenBSD has no librt; without this, find_library(RT_LIB rt) would leave
+# RT_LIB set to RT_LIB-NOTFOUND and the link would fail.
+CONFIGURE_ARGS =	-DRT_LIB= \
+			-DCMAKE_INCLUDE_PATH=${X11BASE}/include \
 			-DCMAKE_LIBRARY_PATH=${X11BASE}/lib \
 			-DPython3_EXECUTABLE=${MODPY_BIN} \
 			-DWANT_BACKTRACE=false \

@@ -1,6 +1,7 @@
 COMMENT =		data description language for the openage engine
 
 V =			0.3.1
+REVISION =		1
 DISTNAME =		nyan-${V}
 CATEGORIES =		lang
 
@@ -11,7 +12,7 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		SFTtech
 GH_PROJECT =		nyan
-GH_TAGNAME =		v${V}
+GH_COMMIT =		ebed788c165d67bf45b0f102446f537fce5aeef0
 
 SHARED_LIBS +=		nyan		1.0
 

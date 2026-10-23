@@ -6,6 +6,7 @@ include/nyan/basic_type.h
 include/nyan/c3.h
 include/nyan/change_tracker.h
 include/nyan/compiler.h
+include/nyan/concept.h
 include/nyan/config.h
 include/nyan/curve.h
 include/nyan/database.h

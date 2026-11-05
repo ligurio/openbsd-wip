@@ -1,0 +1,14 @@
+#!/bin/ksh
+
+daemon="${TRUEPREFIX}/bin/go2rtc"
+daemon_flags="-c ${SYSCONFDIR}/go2rtc/go2rtc.yaml"
+daemon_user="_go2rtc"
+daemon_execdir="${LOCALSTATEDIR}/go2rtc"
+daemon_logger="daemon.info"
+
+. /etc/rc.d/rc.subr
+
+pexp="${daemon} .*"
+rc_bg=YES
+
+rc_cmd $1

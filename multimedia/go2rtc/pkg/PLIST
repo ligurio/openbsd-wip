@@ -1,0 +1,16 @@
+@newgroup _go2rtc:906
+@newuser _go2rtc:906:_go2rtc::go2rtc daemon:${LOCALSTATEDIR}/go2rtc:/sbin/nologin
+@rcscript ${RCDIR}/go2rtc
+@sample ${LOCALSTATEDIR}/go2rtc/
+@bin bin/go2rtc
+share/doc/pkg-readmes/${PKGSTEM}
+share/examples/go2rtc/
+@sample ${SYSCONFDIR}/go2rtc/
+share/examples/go2rtc/go2rtc.yaml
+@mode 640
+@owner _go2rtc
+@group _go2rtc
+@sample ${SYSCONFDIR}/go2rtc/go2rtc.yaml
+@mode
+@owner
+@group

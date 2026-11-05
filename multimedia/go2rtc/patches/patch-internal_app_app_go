@@ -1,0 +1,17 @@
+Without VCS metadata (ports builds with -buildvcs=false), Main.Version is
+"(devel)" and revision is empty, which makes go2rtc report a bogus
+"1.9.15+dev." version.  Only append the development suffix when a revision
+is actually available.
+
+Index: internal/app/app.go
+--- internal/app/app.go.orig
++++ internal/app/app.go
+@@ -111,7 +111,7 @@
+ 		// Check version from -buildvcs info
+ 		// Format for tagged version : v1.9.13
+ 		// Format for modified code:   v1.9.14-0.20251215184105-753d6617ab58+dirty
+-		if info.Main.Version != "v"+Version {
++		if info.Main.Version != "v"+Version && revision != "" {
+ 			// Format: 1.9.13+dev.753d661[.dirty]
+ 			// Compatible with "awesomeversion" and "packaging.version" from python.
+ 			// Version will be larger than the previous release, but smaller than the next release.

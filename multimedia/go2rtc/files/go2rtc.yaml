@@ -1,0 +1,24 @@
+# go2rtc configuration file.
+#
+# See https://github.com/AlexxIT/go2rtc#configuration for the full list
+# of options.
+#
+# Default listen addresses:
+#
+#   1984/tcp	HTTP API and web interface
+#   8554/tcp	RTSP
+#   8555/tcp	WebRTC (TCP and UDP)
+#   8443/tcp	SRTP (used by HomeKit)
+
+log:
+  level: info
+
+# streams:
+#   camera1: rtsp://user:password@192.168.1.10/stream
+
+# To bind the API and RTSP server to localhost only:
+#
+# api:
+#   listen: "127.0.0.1:1984"
+# rtsp:
+#   listen: "127.0.0.1:8554"

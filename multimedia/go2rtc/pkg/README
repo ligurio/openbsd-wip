@@ -1,0 +1,33 @@
++-----------------------------------------------------------------------
+| Running go2rtc
++-----------------------------------------------------------------------
+
+go2rtc is configured in ${SYSCONFDIR}/go2rtc/go2rtc.yaml.  An example
+configuration is installed there by the package.  It can be edited
+directly or through the web interface at http://localhost:1984/.
+The file is owned by the _go2rtc user so that the web interface can
+update it.
+
+Enable and start the service with:
+
+	# rcctl enable go2rtc
+	# rcctl start go2rtc
+
+The daemon runs as the _go2rtc user.  By default it listens on:
+
+	1984/tcp	HTTP API and web interface
+	8554/tcp	RTSP
+	8555/tcp	WebRTC (TCP and UDP)
+	8443/tcp	SRTP (used by HomeKit)
+
+These ports are reachable from the local network by default.  Restrict
+them with pf(4) or change the "listen" options in the configuration file
+if they should not be exposed.
+
+The HTTP API can execute external programs through the echo, exec and
+ffmpeg modules.  Do not expose it to untrusted networks without
+additional authentication or a reverse proxy.
+
+FFmpeg is not a hard dependency.  Install multimedia/ffmpeg to use
+ffmpeg-based sources and on-the-fly transcoding.  Python 3 is required
+for echo sources that use Python scripts.

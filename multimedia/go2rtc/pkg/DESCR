@@ -1,0 +1,11 @@
+go2rtc is a camera streaming application with support for a wide range
+of protocols and formats, including RTSP, RTMP, WebRTC, HLS, MJPEG,
+MP4 and MPEG-TS.
+
+It can receive streams from cameras and other sources, serve them to
+browsers and media players, ingest external streams, and relay them to
+streaming services.  FFmpeg can be used for transcoding when a source
+codec is not supported by the client.
+
+The package includes a web interface and an HTTP API, and can also act
+as an RTSP, RTMP, WebRTC, HomeKit and ONVIF server.

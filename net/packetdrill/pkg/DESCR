@@ -1,0 +1,6 @@
+packetdrill is a scriptable network stack testing tool.  It can test
+TCP, UDP, UDPLite, SCTP, IPv4 and IPv6 behavior from the system call
+layer down to the wire.  This package is based on the nplab fork, which
+adds SCTP/UDPLite support and improved BSD support.
+
+packetdrill needs root privileges and a tun(4) device to run tests.

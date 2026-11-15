@@ -61,7 +61,148 @@
  #elif defined(__APPLE__)
  static bool is_thread_sleeping(pid_t process_id, mach_port_t port)
  {
-@@ -7370,6 +7408,8 @@
+@@ -675,6 +713,29 @@
+ 	return STATUS_OK;
+ }
+ 
++/* Allocate a buffer for an ellipsis argument, or pass a NULL pointer
++ * for a scripted NULL buffer. */
++static int buffer_arg(struct expression_list *args, int index, int count,
++		      char **buf, char **error)
++{
++	struct expression *expression = get_arg(args, index, error);
++
++	if (expression == NULL)
++		return STATUS_ERR;
++	if (expression->type == EXPR_NULL) {
++		*buf = NULL;
++		return STATUS_OK;
++	}
++	if (check_type(expression, EXPR_ELLIPSIS, error))
++		return STATUS_ERR;
++	*buf = calloc(count, 1);
++	if (*buf == NULL) {
++		asprintf(error, "out of memory allocating %d-byte buffer", count);
++		return STATUS_ERR;
++	}
++	return STATUS_OK;
++}
++
+ #if defined(SCTP_GET_PEER_ADDR_INFO) || defined(SCTP_PEER_ADDR_PARAMS) || defined(SCTP_SET_PEER_PRIMARY_ADDR)
+ /* Return STATUS_OK if the argument in from type sockaddr_in or
+  * sockaddr_in6
+@@ -2336,12 +2397,10 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+-	buf = malloc(count);
+-	assert(buf != NULL);
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	begin_syscall(state, syscall);
+ 
+@@ -2408,14 +2467,12 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+ 	if (s32_arg(args, 3, &flags, error))
+ 		return STATUS_ERR;
+-	buf = malloc(count);
+-	assert(buf != NULL);
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	begin_syscall(state, syscall);
+ 
+@@ -2440,8 +2497,6 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+ 	if (s32_arg(args, 3, &flags, error))
+@@ -2450,8 +2505,8 @@
+ 		return STATUS_ERR;
+ 	if (ellipsis_arg(args, 5, error))
+ 		return STATUS_ERR;
+-	buf = malloc(count);
+-	assert(buf != NULL);
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	begin_syscall(state, syscall);
+ 
+@@ -2529,12 +2584,10 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+-	buf = calloc(count, 1);
+-	assert(buf != NULL);
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	begin_syscall(state, syscall);
+ 
+@@ -2601,14 +2654,12 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+ 	if (s32_arg(args, 3, &flags, error))
+ 		return STATUS_ERR;
+-	buf = calloc(count, 1);
+-	assert(buf != NULL);
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	begin_syscall(state, syscall);
+ 
+@@ -2633,8 +2684,6 @@
+ 		return STATUS_ERR;
+ 	if (to_live_fd(state, script_fd, &live_fd, error))
+ 		return STATUS_ERR;
+-	if (ellipsis_arg(args, 1, error))
+-		return STATUS_ERR;
+ 	if (s32_arg(args, 2, &count, error))
+ 		return STATUS_ERR;
+ 	if (s32_arg(args, 3, &flags, error))
+@@ -2643,15 +2692,14 @@
+ 		return STATUS_ERR;
+ 	if (ellipsis_arg(args, 5, error))
+ 		return STATUS_ERR;
++	if (buffer_arg(args, 1, count, &buf, error))
++		return STATUS_ERR;
+ 
+ 	if (run_syscall_connect(
+ 		    state, script_fd, false,
+ 		    (struct sockaddr *)&live_addr, &live_addrlen, error))
+ 		return STATUS_ERR;
+ 
+-	buf = calloc(count, 1);
+-	assert(buf != NULL);
+-
+ 	begin_syscall(state, syscall);
+ 
+ 	result = sendto(live_fd, buf, count, flags,
+@@ -7370,6 +7418,8 @@
  	state->syscalls->thread_id = pthread_getthreadid_np();
  #elif defined(__APPLE__)
  	state->syscalls->thread_id = pthread_mach_thread_np(pthread_self());

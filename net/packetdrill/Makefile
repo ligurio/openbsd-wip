@@ -26,7 +26,7 @@ ALL_TARGET =		packetdrill
 TEST_TARGET =		tests
 NO_CONFIGURE =		Yes
 
-WANTLIB +=		c crypto pcap pthread
+WANTLIB +=		c crypto kvm pcap pthread
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/packetdrill ${PREFIX}/bin/

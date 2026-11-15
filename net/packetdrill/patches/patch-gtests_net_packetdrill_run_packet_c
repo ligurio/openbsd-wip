@@ -1,0 +1,75 @@
+--- gtests/net/packetdrill/run_packet.c.orig
++++ gtests/net/packetdrill/run_packet.c
+@@ -696,34 +696,68 @@
+ 	return STATUS_OK;
+ }
+ 
+-/* Rewrite the TCP sequence number echoed by the ICMP packet.
+- * The Linux TCP layer ignores ICMP messages with bogus sequence numbers.
++/* Fill in the addresses in the IP header echoed by an ICMP error.  The
++ * kernel uses this header to find the connection that triggered the error.
+  */
++static void map_inbound_icmp_addresses(struct socket *socket,
++				       struct packet *live_packet)
++{
++	if (live_packet->icmpv4 != NULL) {
++		struct ipv4 *ipv4 = packet_echoed_ipv4_header(live_packet);
++
++		ip_to_ipv4(&socket->live.local.ip, &ipv4->src_ip);
++		ip_to_ipv4(&socket->live.remote.ip, &ipv4->dst_ip);
++	} else if (live_packet->icmpv6 != NULL) {
++		struct ipv6 *ipv6 = packet_echoed_ipv6_header(live_packet);
++
++		ip_to_ipv6(&socket->live.local.ip, &ipv6->src_ip);
++		ip_to_ipv6(&socket->live.remote.ip, &ipv6->dst_ip);
++	}
++}
++
++/* Rewrite the TCP sequence number and ports echoed by the ICMP packet.
++ * The kernel ignores ICMP messages that do not match the connection.
++ */
+ static int map_inbound_icmp_tcp_packet(
+ 	struct socket *socket,
+ 	struct packet *live_packet,
+ 	bool encapsulated,
+ 	char **error)
+ {
++	struct tcp *tcp = packet_echoed_tcp_header(live_packet, encapsulated);
+ 	u32 *seq = packet_echoed_tcp_seq(live_packet, encapsulated);
+ 	/* FIXME: There is currently no way to access the TCP flags */
+ 	bool is_syn = false;
+ 	u32 seq_offset = local_seq_script_to_live_offset(socket, is_syn);
++
++	map_inbound_icmp_addresses(socket, live_packet);
++	tcp->src_port = socket->live.local.port;
++	tcp->dst_port = socket->live.remote.port;
+ 	*seq = htonl(ntohl(*seq) + seq_offset);
+ 	return STATUS_OK;
+ }
+ 
+-/* UDP headers echoed by ICMP messages need no special rewriting. */
++/* Fill in the UDP ports echoed by an ICMP message. */
+ static int map_inbound_icmp_udp_packet(
+ 	struct socket *socket, struct packet *live_packet, char **error)
+ {
++	struct udp *udp = packet_echoed_udp_header(live_packet);
++
++	map_inbound_icmp_addresses(socket, live_packet);
++	udp->src_port = socket->live.local.port;
++	udp->dst_port = socket->live.remote.port;
+ 	return STATUS_OK;
+ }
+ 
+-/* UDPLite headers echoed by ICMP messages need no special rewriting. */
++/* Fill in the UDPLite ports echoed by an ICMP message. */
+ static int map_inbound_icmp_udplite_packet(
+ 	struct socket *socket, struct packet *live_packet, char **error)
+ {
++	struct udplite *udplite = packet_echoed_udplite_header(live_packet);
++
++	map_inbound_icmp_addresses(socket, live_packet);
++	udplite->src_port = socket->live.local.port;
++	udplite->dst_port = socket->live.remote.port;
+ 	return STATUS_OK;
+ }
+ 

@@ -33,7 +33,29 @@
  	if (fstat(netdev->tun_fd, &buf) < 0) {
  		die_perror("fstat tun device");
  	}
-@@ -513,6 +522,7 @@ static int local_netdev_send(struct netdev *a_netdev,
+@@ -367,12 +376,21 @@ static void route_traffic_to_device(struct config *config,
+ 			 config->live_remote_prefix_string,
+ 			 config->live_gateway_ip_string);
+ 	} else if (config->wire_protocol == AF_INET6) {
++#if defined(__OpenBSD__)
++		asprintf(&route_command,
++			 "route delete -inet6 %s > /dev/null 2>&1 ; "
++			 "route add -inet6 %s -link -iface %s > /dev/null",
++			 config->live_remote_prefix_string,
++			 config->live_remote_prefix_string,
++			 netdev->name);
++#else
+ 		asprintf(&route_command,
+ 			 "route delete -inet6 %s > /dev/null 2>&1 ; "
+ 			 "route add -inet6 %s %s > /dev/null",
+ 			 config->live_remote_prefix_string,
+ 			 config->live_remote_prefix_string,
+ 			 config->live_gateway_ip_string);
++#endif
+ 	} else {
+ 		assert(!"bad wire protocol");
+ 	}
+@@ -513,6 +531,7 @@ static int local_netdev_send(struct netdev *a_netdev,
   * need the packet contents, but on Linux we need to read at least 1
   * byte of packet data to consume the packet.
   */
@@ -41,7 +63,7 @@
  static void local_netdev_read_queue(struct local_netdev *netdev,
  				    int num_packets)
  {
-@@ -531,7 +541,71 @@ static void local_netdev_read_queue(struct local_netdev *netdev,
+@@ -531,7 +550,71 @@ static void local_netdev_read_queue(struct local_netdev *netdev,
  		}
  	}
  }
@@ -68,7 +90,7 @@
 +	DEBUGP("local_netdev_receive (OpenBSD tun)\n");
 +
 +	*packet = packet_new(PACKET_READ_BYTES);
-+
+ 
 +	pfd.fd = netdev->tun_fd;
 +	pfd.events = POLLIN;
 +	pfd.revents = 0;
@@ -97,7 +119,7 @@
 +	gettimeofday(&tv, NULL);
 +	(*packet)->time_usecs = timeval_to_usecs(&tv);
 +	(*packet)->direction = DIRECTION_OUTBOUND;
- 
++
 +	ether_type = (af == AF_INET) ? ETHERTYPE_IP : ETHERTYPE_IPV6;
 +	result = parse_packet(*packet, n - sizeof(af), ether_type,
 +			      udp_encaps, error);
@@ -113,7 +135,7 @@
  static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
  				struct packet **packet, char **error)
  {
-@@ -546,6 +620,7 @@ static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
+@@ -546,6 +629,7 @@ static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
  	local_netdev_read_queue(netdev, num_packets);
  	return status;
  }

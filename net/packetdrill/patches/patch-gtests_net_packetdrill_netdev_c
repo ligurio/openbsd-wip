@@ -33,32 +33,58 @@
  	if (fstat(netdev->tun_fd, &buf) < 0) {
  		die_perror("fstat tun device");
  	}
-@@ -367,12 +376,21 @@
- 			 config->live_remote_prefix_string,
- 			 config->live_gateway_ip_string);
- 	} else if (config->wire_protocol == AF_INET6) {
+@@ -345,6 +354,27 @@
+ }
+ #endif
+ 
 +#if defined(__OpenBSD__)
-+		asprintf(&route_command,
-+			 "route delete -inet6 %s > /dev/null 2>&1 ; "
-+			 "route add -inet6 %s -link -iface %s > /dev/null",
-+			 config->live_remote_prefix_string,
-+			 config->live_remote_prefix_string,
-+			 netdev->name);
-+#else
- 		asprintf(&route_command,
- 			 "route delete -inet6 %s > /dev/null 2>&1 ; "
- 			 "route add -inet6 %s %s > /dev/null",
- 			 config->live_remote_prefix_string,
- 			 config->live_remote_prefix_string,
- 			 config->live_gateway_ip_string);
++/* Adding IPv6 addresses makes the kernel queue multicast listener reports
++ * on tun(4).  Discard them before the test starts, otherwise packetdrill
++ * treats them as unexpected outbound packets.
++ */
++static void drain_tun(struct local_netdev *netdev)
++{
++	struct pollfd pfd;
++	char buffer[65536];
++
++	memset(&pfd, 0, sizeof(pfd));
++	pfd.fd = netdev->tun_fd;
++	pfd.events = POLLIN;
++	while (poll(&pfd, 1, 0) > 0) {
++		if (read(netdev->tun_fd, buffer, sizeof(buffer)) <= 0)
++			break;
++		pfd.revents = 0;
++	}
++}
++#endif /* defined(__OpenBSD__) */
++
+ /* Route traffic destined for our remote IP through this device */
+ static void route_traffic_to_device(struct config *config,
+ 				    struct local_netdev *netdev)
+@@ -407,6 +437,9 @@
+ 			      &config->live_gateway_ip);
+ 
+ 	route_traffic_to_device(config, netdev);
++#if defined(__OpenBSD__)
++	drain_tun(netdev);
 +#endif
- 	} else {
- 		assert(!"bad wire protocol");
- 	}
-@@ -531,6 +549,68 @@
+ 	netdev->psock = packet_socket_new(netdev->name);
+ #if !defined(linux)
+ 	/* Make sure we only see packets from the machine under test. */
+@@ -513,6 +546,7 @@
+  * need the packet contents, but on Linux we need to read at least 1
+  * byte of packet data to consume the packet.
+  */
++#if !defined(__OpenBSD__)
+ static void local_netdev_read_queue(struct local_netdev *netdev,
+ 				    int num_packets)
+ {
+@@ -531,11 +565,93 @@
  		}
  	}
  }
++#endif /* !defined(__OpenBSD__) */
+ 
 +#if defined(__OpenBSD__)
 +/*
 + * On OpenBSD, packets sent by the kernel are first queued on the tun(4)
@@ -66,10 +92,10 @@
 + * reads the tun file descriptor.  Read the packet directly from tun(4) and
 + * strip the four-byte address-family header that OpenBSD prepends.
 + */
-+static int local_netdev_receive_tun(struct local_netdev *netdev,
-+				    u8 udp_encaps,
-+				    struct packet **packet, char **error)
-+{
+ static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
+ 				struct packet **packet, char **error)
+ {
+ 	struct local_netdev *netdev = to_local_netdev(a_netdev);
 +	struct pollfd pfd;
 +	struct timeval tv;
 +	u32 af;
@@ -79,59 +105,79 @@
 +
 +	DEBUGP("local_netdev_receive (OpenBSD tun)\n");
 +
-+	*packet = packet_new(PACKET_READ_BYTES);
-+	pfd.fd = netdev->tun_fd;
-+	pfd.events = POLLIN;
-+	pfd.revents = 0;
-+	while (poll(&pfd, 1, -1) < 0) {
-+		if (errno == EINTR)
-+			continue;
-+		asprintf(error, "poll tun device: %s", strerror(errno));
-+		packet_free(*packet);
-+		*packet = NULL;
-+		return STATUS_ERR;
++	for (;;) {
++		*packet = packet_new(PACKET_READ_BYTES);
++
++		pfd.fd = netdev->tun_fd;
++		pfd.events = POLLIN;
++		pfd.revents = 0;
++		while (poll(&pfd, 1, -1) < 0) {
++			if (errno == EINTR)
++				continue;
++			asprintf(error, "poll tun device: %s", strerror(errno));
++			packet_free(*packet);
++			*packet = NULL;
++			return STATUS_ERR;
++		}
++
++		n = read(netdev->tun_fd, (*packet)->buffer,
++			 (*packet)->buffer_bytes);
++		if (n < (int)sizeof(af)) {
++			asprintf(error, "short read from tun device: %d bytes", n);
++			packet_free(*packet);
++			*packet = NULL;
++			return STATUS_ERR;
++		}
++
++		memcpy(&af, (*packet)->buffer, sizeof(af));
++		af = ntohl(af);
++		memmove((*packet)->buffer, (*packet)->buffer + sizeof(af),
++			n - sizeof(af));
++
++		gettimeofday(&tv, NULL);
++		(*packet)->time_usecs = timeval_to_usecs(&tv);
++		(*packet)->direction = DIRECTION_OUTBOUND;
++
++		/* Adding IPv6 addresses makes the kernel send multicast
++		 * listener reports asynchronously.  They are not part of
++		 * the test and must not be mistaken for test traffic.
++		 * Check the destination before parsing because the MLD
++		 * packets carry a hop-by-hop extension header. */
++		if (af == AF_INET6 &&
++		    n - (int)sizeof(af) >= (int)sizeof(struct ipv6)) {
++			struct ipv6 *ipv6 = (struct ipv6 *)(*packet)->buffer;
++			if (ipv6->dst_ip.s6_addr[0] == 0xff) {
++				packet_free(*packet);
++				*packet = NULL;
++				continue;
++			}
++		}
++
++		ether_type = (af == AF_INET) ? ETHERTYPE_IP : ETHERTYPE_IPV6;
++		result = parse_packet(*packet, n - sizeof(af), ether_type,
++				      udp_encaps, error);
++		if (result != PACKET_OK) {
++			packet_free(*packet);
++			*packet = NULL;
++			return STATUS_ERR;
++		}
++
++		return STATUS_OK;
 +	}
-+
-+	n = read(netdev->tun_fd, (*packet)->buffer, (*packet)->buffer_bytes);
-+	if (n < (int)sizeof(af)) {
-+		asprintf(error, "short read from tun device: %d bytes", n);
-+		packet_free(*packet);
-+		*packet = NULL;
-+		return STATUS_ERR;
-+	}
-+
-+	memcpy(&af, (*packet)->buffer, sizeof(af));
-+	af = ntohl(af);
-+	memmove((*packet)->buffer, (*packet)->buffer + sizeof(af),
-+		n - sizeof(af));
-+
-+	gettimeofday(&tv, NULL);
-+	(*packet)->time_usecs = timeval_to_usecs(&tv);
-+	(*packet)->direction = DIRECTION_OUTBOUND;
-+
-+	ether_type = (af == AF_INET) ? ETHERTYPE_IP : ETHERTYPE_IPV6;
-+	result = parse_packet(*packet, n - sizeof(af), ether_type,
-+			      udp_encaps, error);
-+	if (result != PACKET_OK) {
-+		packet_free(*packet);
-+		*packet = NULL;
-+		return STATUS_ERR;
-+	}
-+
-+	return STATUS_OK;
 +}
++#else
++static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
++				struct packet **packet, char **error)
++{
++	struct local_netdev *netdev = to_local_netdev(a_netdev);
+ 	int status = STATUS_ERR;
+ 	int num_packets = 0;
+ 
+@@ -546,6 +662,7 @@
+ 	local_netdev_read_queue(netdev, num_packets);
+ 	return status;
+ }
 +#endif /* defined(__OpenBSD__) */
  
- static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
- 				struct packet **packet, char **error)
-@@ -541,6 +621,10 @@
- 
- 	DEBUGP("local_netdev_receive\n");
- 
-+#if defined(__OpenBSD__)
-+	return local_netdev_receive_tun(netdev, udp_encaps, packet, error);
-+#endif
-+
- 	status = netdev_receive_loop(netdev->psock, DIRECTION_OUTBOUND,
- 				     udp_encaps,packet, &num_packets, error);
- 	local_netdev_read_queue(netdev, num_packets);
+ int netdev_receive_loop(struct packet_socket *psock,
+ 			enum direction_t direction,

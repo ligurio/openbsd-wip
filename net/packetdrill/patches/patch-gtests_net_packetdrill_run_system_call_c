@@ -1,0 +1,72 @@
+--- gtests/net/packetdrill/run_system_call.c.orig
++++ gtests/net/packetdrill/run_system_call.c
+@@ -38,7 +38,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/ioctl.h>
+-#if defined(__FreeBSD__) || defined(__NetBSD__)
++#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+ #include <stddef.h>
+ #endif
+ #if defined(__FreeBSD__)
+@@ -49,6 +49,11 @@
+ #include <sys/queue.h>
+ #include <libprocstat.h>
+ #endif
++#if defined(__OpenBSD__)
++#include <kvm.h>
++#include <sys/proc.h>
++#include <sys/sysctl.h>
++#endif
+ #include <sys/socket.h>
+ #include <sys/syscall.h>
+ #include <sys/types.h>
+@@ -221,6 +226,39 @@
+ 	procstat_close(procstat);
+ 	return is_sleeping;
+ }
++#elif defined(__OpenBSD__)
++static bool is_thread_sleeping(pid_t process_id, int thread_id)
++{
++	char errbuf[256];
++	kvm_t *kd;
++	struct kinfo_proc *procs;
++	int count = 0;
++	int i;
++	bool is_sleeping = false;
++
++	kd = kvm_openfiles(NULL, NULL, NULL, KVM_NO_FILES, errbuf);
++	if (kd == NULL)
++		die("kvm_openfiles() failed: %s\n", errbuf);
++
++	procs = kvm_getprocs(kd,
++			     KERN_PROC_PID | KERN_PROC_SHOW_THREADS,
++			     process_id, sizeof(struct kinfo_proc), &count);
++	if (procs == NULL)
++		die("kvm_getprocs() failed\n");
++
++	for (i = 0; i < count; ++i) {
++		if (procs[i].p_tid == thread_id) {
++			is_sleeping = (procs[i].p_stat == SSLEEP &&
++				  strcmp(procs[i].p_wmesg, "fsleep") != 0);
++			break;
++		}
++	}
++	if (i == count)
++		die("unable to find thread %d\n", thread_id);
++
++	kvm_close(kd);
++	return is_sleeping;
++}
+ #elif defined(__APPLE__)
+ static bool is_thread_sleeping(pid_t process_id, mach_port_t port)
+ {
+@@ -7370,6 +7408,8 @@
+ 	state->syscalls->thread_id = pthread_getthreadid_np();
+ #elif defined(__APPLE__)
+ 	state->syscalls->thread_id = pthread_mach_thread_np(pthread_self());
++#elif defined(__OpenBSD__)
++	state->syscalls->thread_id = getthrid();
+ #else
+ 	state->syscalls->thread_id = 0;		/* FIXME */
+ #endif

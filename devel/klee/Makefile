@@ -1,6 +1,6 @@
 COMMENT =		symbolic execution engine built on top of LLVM
 
-V =			3.3
+V =			3.4.20261113
 DISTNAME =		klee-${V}
 CATEGORIES =		devel
 
@@ -16,7 +16,7 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		klee
 GH_PROJECT =		klee
-GH_TAGNAME =		v${V}
+GH_COMMIT =		6ba3a666fa4379b22fb2b0371dc1a695cbd7baf3
 
 COMPILER =		base-clang ports-gcc
 COMPILER_LANGS =	c++

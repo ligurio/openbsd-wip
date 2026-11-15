@@ -1,6 +1,6 @@
 COMMENT =		minimalistic ActivityPub instance
 
-V =			2.96
+V =			2.97
 DISTNAME =		snac-${V}
 DISTFILES =		${V}${EXTRACT_SUFX}
 CATEGORIES =		www

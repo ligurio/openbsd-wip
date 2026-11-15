@@ -19,7 +19,7 @@
  #include "ip.h"
  #include "ipv6.h"
  #include "logging.h"
-@@ -227,9 +232,13 @@ static void create_device(struct config *config, struct local_netdev *netdev)
+@@ -227,9 +232,13 @@
  #endif
  
  #if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__)
@@ -33,7 +33,7 @@
  	if (fstat(netdev->tun_fd, &buf) < 0) {
  		die_perror("fstat tun device");
  	}
-@@ -367,12 +376,21 @@ static void route_traffic_to_device(struct config *config,
+@@ -367,12 +376,21 @@
  			 config->live_remote_prefix_string,
  			 config->live_gateway_ip_string);
  	} else if (config->wire_protocol == AF_INET6) {
@@ -55,20 +55,10 @@
  	} else {
  		assert(!"bad wire protocol");
  	}
-@@ -513,6 +531,7 @@ static int local_netdev_send(struct netdev *a_netdev,
-  * need the packet contents, but on Linux we need to read at least 1
-  * byte of packet data to consume the packet.
-  */
-+#if !defined(__OpenBSD__)
- static void local_netdev_read_queue(struct local_netdev *netdev,
- 				    int num_packets)
- {
-@@ -531,7 +550,71 @@ static void local_netdev_read_queue(struct local_netdev *netdev,
+@@ -531,6 +549,68 @@
  		}
  	}
  }
-+#endif /* !defined(__OpenBSD__) */
-+
 +#if defined(__OpenBSD__)
 +/*
 + * On OpenBSD, packets sent by the kernel are first queued on the tun(4)
@@ -76,10 +66,10 @@
 + * reads the tun file descriptor.  Read the packet directly from tun(4) and
 + * strip the four-byte address-family header that OpenBSD prepends.
 + */
-+static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
-+				struct packet **packet, char **error)
++static int local_netdev_receive_tun(struct local_netdev *netdev,
++				    u8 udp_encaps,
++				    struct packet **packet, char **error)
 +{
-+	struct local_netdev *netdev = to_local_netdev(a_netdev);
 +	struct pollfd pfd;
 +	struct timeval tv;
 +	u32 af;
@@ -90,7 +80,6 @@
 +	DEBUGP("local_netdev_receive (OpenBSD tun)\n");
 +
 +	*packet = packet_new(PACKET_READ_BYTES);
- 
 +	pfd.fd = netdev->tun_fd;
 +	pfd.events = POLLIN;
 +	pfd.revents = 0;
@@ -131,15 +120,18 @@
 +
 +	return STATUS_OK;
 +}
-+#else
- static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
- 				struct packet **packet, char **error)
- {
-@@ -546,6 +629,7 @@ static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
- 	local_netdev_read_queue(netdev, num_packets);
- 	return status;
- }
 +#endif /* defined(__OpenBSD__) */
  
- int netdev_receive_loop(struct packet_socket *psock,
- 			enum direction_t direction,
+ static int local_netdev_receive(struct netdev *a_netdev, u8 udp_encaps,
+ 				struct packet **packet, char **error)
+@@ -541,6 +621,10 @@
+ 
+ 	DEBUGP("local_netdev_receive\n");
+ 
++#if defined(__OpenBSD__)
++	return local_netdev_receive_tun(netdev, udp_encaps, packet, error);
++#endif
++
+ 	status = netdev_receive_loop(netdev->psock, DIRECTION_OUTBOUND,
+ 				     udp_encaps,packet, &num_packets, error);
+ 	local_netdev_read_queue(netdev, num_packets);

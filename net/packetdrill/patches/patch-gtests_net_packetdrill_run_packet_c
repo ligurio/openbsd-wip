@@ -1,6 +1,6 @@
 --- gtests/net/packetdrill/run_packet.c.orig
 +++ gtests/net/packetdrill/run_packet.c
-@@ -696,34 +696,68 @@
+@@ -696,8 +696,27 @@
  	return STATUS_OK;
  }
  
@@ -8,7 +8,7 @@
 - * The Linux TCP layer ignores ICMP messages with bogus sequence numbers.
 +/* Fill in the addresses in the IP header echoed by an ICMP error.  The
 + * kernel uses this header to find the connection that triggered the error.
-  */
++ */
 +static void map_inbound_icmp_addresses(struct socket *socket,
 +				       struct packet *live_packet)
 +{
@@ -27,10 +27,10 @@
 +
 +/* Rewrite the TCP sequence number and ports echoed by the ICMP packet.
 + * The kernel ignores ICMP messages that do not match the connection.
-+ */
+  */
  static int map_inbound_icmp_tcp_packet(
  	struct socket *socket,
- 	struct packet *live_packet,
+@@ -705,25 +724,40 @@
  	bool encapsulated,
  	char **error)
  {

@@ -1,6 +1,6 @@
 COMMENT =		scriptable network stack testing tool
 
-V =			0.0.20260426
+V =			0.0.20261115
 DISTNAME =		packetdrill-${V}
 CATEGORIES =		net
 
@@ -13,7 +13,7 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		nplab
 GH_PROJECT =		packetdrill
-GH_COMMIT =		c8e048bcd2a2fa850ccb27b56f6010b80f3eaf48
+GH_COMMIT =		ceda311f884bc0542d1cc6937fa5a018b1703878
 
 WRKSRC =		${WRKDIST}/gtests/net/packetdrill
 
